@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on julhe.github.io</title>
-    <link>http://example.org/posts/</link>
+    <link>https://julhe.github.io/posts/</link>
     <description>Recent content in Posts on julhe.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 31 May 2019 20:00:00 +0100</lastBuildDate>
     
-	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Dead Simple Filtering for SDFs Masks</title>
-      <link>http://example.org/posts/dead-simple-filtering-for-sdfs-masks/</link>
+      <link>https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/</link>
       <pubDate>Fri, 31 May 2019 20:00:00 +0100</pubDate>
       
-      <guid>http://example.org/posts/dead-simple-filtering-for-sdfs-masks/</guid>
+      <guid>https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/</guid>
       <description>Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error, I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.
 Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.</description>
     </item>
     
     <item>
       <title>Baked Surface Reflections</title>
-      <link>http://example.org/posts/baked-spatial-reflections/</link>
+      <link>https://julhe.github.io/posts/baked-spatial-reflections/</link>
       <pubDate>Wed, 21 Nov 2018 20:24:00 +0100</pubDate>
       
-      <guid>http://example.org/posts/baked-spatial-reflections/</guid>
+      <guid>https://julhe.github.io/posts/baked-spatial-reflections/</guid>
       <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
  Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
@@ -34,10 +34,10 @@ Reflections by the surface While this looks good enough, with this amount of pro
     
     <item>
       <title>Fixing screenspace effects for VR</title>
-      <link>http://example.org/posts/fixing-screenspace-effects-for-vr/</link>
+      <link>https://julhe.github.io/posts/fixing-screenspace-effects-for-vr/</link>
       <pubDate>Thu, 21 Dec 2017 20:24:00 +0100</pubDate>
       
-      <guid>http://example.org/posts/fixing-screenspace-effects-for-vr/</guid>
+      <guid>https://julhe.github.io/posts/fixing-screenspace-effects-for-vr/</guid>
       <description>In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
 Lucid Trips with vignettingBut the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
 The reason is simple: the screen center, which is also center of the vignett, is not the eye center.</description>
