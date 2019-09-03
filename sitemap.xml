@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/posts/dead-simple-filtering-for-sdfs-masks/</loc>
+    <lastmod>2019-05-31T20:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2019-05-31T20:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/</loc>
+    <lastmod>2019-05-31T20:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/baked-spatial-reflections/</loc>
+    <lastmod>2018-11-21T20:24:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/posts/fixing-screenspace-effects-for-vr/</loc>
+    <lastmod>2017-12-21T20:24:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/showcase/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+</urlset>

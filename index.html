@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.57.2" />
+  
+    <title>julhe.github.io — A simple, retro theme for Hugo</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="A simple, retro theme for Hugo"/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://example.org/" />
+
+
+<link rel="stylesheet" href="http://example.org/assets/style.css">
+
+  <link rel="stylesheet" href="http://example.org/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://example.org/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="http://example.org/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="julhe.github.io — A simple, retro theme for Hugo" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:site" content="http://example.org/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="julhe.github.io — A simple, retro theme for Hugo">
+<meta property="og:description" content="" />
+<meta property="og:url" content="http://example.org/" />
+<meta property="og:site_name" content="julhe.github.io" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="julhe.github.io" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    julhe
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="posts">
+  
+  
+
+  
+  
+    
+  
+  
+
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="http://example.org/posts/dead-simple-filtering-for-sdfs-masks/">Dead Simple Filtering for SDFs Masks</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2019-05-31
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp; Error, I figured out a pretty simple and stable methode I won&rsquo;t withheld any futher.
+Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  &hellip; half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/dead-simple-filtering-for-sdfs-masks/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="http://example.org/posts/baked-spatial-reflections/">Baked Surface Reflections</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2018-11-21
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:
+ Not bad, huh?
+Reflections by the surface While this looks good enough, with this amount of probes it&rsquo;s a engine meltdown.
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/baked-spatial-reflections/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="http://example.org/posts/fixing-screenspace-effects-for-vr/">Fixing screenspace effects for VR</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2017-12-21
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      <p>In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
+Lucid Trips with vignetting</p>
+
+<p>But the &ldquo;stock&rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
+The reason is simple: the screen center, which is also center of the vignett, is not the eye center.</p>
+
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/fixing-screenspace-effects-for-vr/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="http://example.org/assets/main.js"></script>
+<script src="http://example.org/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

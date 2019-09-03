@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Fixing screenspace effects for VR :: julhe.github.io — A simple, retro theme for Hugo</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
+Lucid Trips with vignettingBut the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
+The reason is simple: the screen center, which is also center of the vignett, is not the eye center."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="http://example.org/posts/fixing-screenspace-effects-for-vr/" />
+
+
+<link rel="stylesheet" href="http://example.org/assets/style.css">
+
+  <link rel="stylesheet" href="http://example.org/assets/green.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://example.org/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="http://example.org/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Fixing screenspace effects for VR :: julhe.github.io — A simple, retro theme for Hugo" />
+<meta name="twitter:description" content="In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
+Lucid Trips with vignettingBut the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
+The reason is simple: the screen center, which is also center of the vignett, is not the eye center." />
+<meta name="twitter:site" content="http://example.org/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Fixing screenspace effects for VR :: julhe.github.io — A simple, retro theme for Hugo">
+<meta property="og:description" content="In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
+Lucid Trips with vignettingBut the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
+The reason is simple: the screen center, which is also center of the vignett, is not the eye center." />
+<meta property="og:url" content="http://example.org/posts/fixing-screenspace-effects-for-vr/" />
+<meta property="og:site_name" content="Fixing screenspace effects for VR" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2017-12-21 20:24:00 &#43;0100 CET" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    julhe
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="http://example.org/posts/fixing-screenspace-effects-for-vr/">Fixing screenspace effects for VR</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2017-12-21
+    </span>
+    
+    
+  </div>
+
+  
+
+  
+
+  <div class="post-content">
+    <p>In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!</p>
+
+
+  <figure class="center" >
+    <img src="vignette-example-1.jpg"  alt="Lucid Trips with vignetting"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: black;" >Lucid Trips with vignetting</figcaption>
+    
+  </figure>
+
+
+
+<p>But the &ldquo;stock&rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens.  This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.</p>
+
+<p>The reason is simple: the screen center, which is also center of the vignett, is not the eye center. Every Head-Mounted-Display is different here where this position exactly is:</p>
+
+
+  <figure class="center" >
+    <img src="vrEyeSpace-3-768x272.png"  alt="Screen-Center vs. Eye-Center"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: black;" >Screen-Center vs. Eye-Center</figcaption>
+    
+  </figure>
+
+
+
+<p>But one can figure out the actually eye center position.</p>
+
+<ol>
+<li>Place a point in front of the camera. From my tests, it should not be too close. 10 units seems to be alright.</li>
+<li>Then obtain the screen coordinate of this point for each eye and pass it to the shader.</li>
+</ol>
+
+<p>This works for both Single- and Multi-Pass rendering (which was the original motivation to do this).</p>
+
+<hr />
+
+<p>Let&rsquo;s Code!</p>
+
+<ol>
+<li><p>Unity offers <code>currentCamera.transform.forward</code> to get our cameras looking direction. Now we need to multiply the direction by our desired distance and add the world-position of our camera to it, done.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Vector3 currentCameraForward = transform.forward; <span style="color:#75715e">//translate vignetting direction to worldspace position 
+</span><span style="color:#75715e"></span>Vector3 vignetteCenterWorldSpace = transform.position + vignetteWorldSpaceDirection * VIGNETTING_DEPTH;
+</code></pre></div></li>
+
+<li><p>Our point is a world-space coordinate, but our vignette is calculated in viewport-space&hellip; First, we need theses helper functions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Matrix4x4 GetStereoWorldToViewMatrix(Camera.StereoscopicEye eye) { 
+	<span style="color:#66d9ef">return</span> currentCamera.GetStereoProjectionMatrix(eye) * currentCamera.GetStereoViewMatrix(eye); 
+}
+<span style="color:#66d9ef">static</span> Vector4 NormalizeScreenSpaceCords(Vector4 coords) { 
+	<span style="color:#75715e">//normalize viewport coords from [-1, 1] [0, 1] 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> (coords * <span style="color:#ae81ff">0.5f</span>) + Vector4.one * <span style="color:#ae81ff">0.5f</span>; 
+}
+</code></pre></div>
+<p>Now we calculate the viewport positions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Matrix4x4 worldToClipSpace_left = GetWorldToClipMatrix(Camera.StereoscopicEye.Left);
+viewportSpaceOffset[<span style="color:#ae81ff">0</span>] =  worldToClipSpace_left.MultiplyPoint(vignetteCenterWorldSpace);<span style="color:#75715e">// get world-space position as clip-space position 
+</span><span style="color:#75715e"></span>viewportSpaceOffset[<span style="color:#ae81ff">0</span>] = -NormalizeScreenSpaceCords(viewportSpaceOffset[<span style="color:#ae81ff">0</span>]);<span style="color:#75715e">// convert clip-space [-1,1] to viewport space [0,1]. also negate the offset.
+</span><span style="color:#75715e">// the same for the right eye...
+</span></code></pre></div>
+<p>Let’s recall the pipeline which leads us to the viewport position: world-space ⇨ view-space ⇨ clip-space ⇨ viewport-space. I don’t want to get too deep into the topic here, but if your interested, I will link some resources down below.</p></li>
+
+<li><p>Now we are ready for the shader! Assuming our vertex shader just passes in the pure screenspace uv coordianates, we first set up our pixel-shader.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">float2 screenUV = UnityStereoScreenSpaceUVAdjust(i.uv, _MainTex_ST);
+<span style="color:#75715e">#if (UNITY_SINGLE_PASS_STEREO)
+</span><span style="color:#75715e"></span><span style="color:#75715e">// in single pass, we need to figure out what eye we&#39;re rendering to by our selfs
+</span><span style="color:#75715e"></span>unity_StereoEyeIndex = screenUV &gt; <span style="color:#ae81ff">0.5</span>;		
+<span style="color:#75715e">#endif
+</span><span style="color:#75715e"></span>half2 vignetteCenter = i.uv;
+</code></pre></div>
+<p>A vignette is basically a circle… …but smooth… we can calculate a by taking the distance to our fresh calculated eye center.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">vignetteCenter += _vignetteViewportSpaceOffset[unity_StereoEyeIndex].xy; <span style="color:#75715e">// shift to center
+</span><span style="color:#75715e"></span>vignetteCenter *= <span style="color:#ae81ff">2.0</span>; <span style="color:#75715e">// make vignett a bit tighter
+</span><span style="color:#75715e"></span>half mask = dot(vignetteCenter, vignetteCenter); <span style="color:#75715e">// compute square length from center
+</span></code></pre></div>
+<p>Now we just need to combine it with the input…</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">half4 col = tex2D(_MainTex, screenUV);
+<span style="color:#66d9ef">return</span> col * mask; <span style="color:#75715e">//compose
+</span></code></pre></div></li>
+</ol>
+
+<p>And that’s it. Look into the Unity package for the full implementation.</p>
+
+<p>Some resources:</p>
+
+<ul>
+<li><a href="https://youtu.be/cvcAjgMUPUA">TheHappyCat - How Rendering Graphics Works in Games!</a></li>
+<li><a href="https://stackoverflow.com/questions/15588860/what-exactly-are-eye-space-coordinates#15592361">What exactly are eye space coordinates? (StackOverflow)</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/Camera.WorldToViewportPoint.html">Unitys WorldToViewportPoint()</a></li>
+</ul>
+
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Read other posts</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="http://example.org/posts/baked-spatial-reflections/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Baked Surface Reflections</span>
+        </a>
+      </span>
+      
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="http://example.org/assets/main.js"></script>
+<script src="http://example.org/assets/prism.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
