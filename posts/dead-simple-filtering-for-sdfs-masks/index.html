@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   
-    <title>Dead Simple Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo</title>
+    <title>Flicker-Free Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error, I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.
-Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize."/>
+<meta name="description" content="Signed Distance Fields are a I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error,I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.  
+  Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.zw; // calculate the area under the pixel texelCoverage = saturate(texelCoverage); //clamp texelCoverage to [0."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/" />
@@ -19,7 +19,7 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
 
 
 
-
+<link rel="stylesheet" href="https://julhe.github.io/style.css">
 
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://julhe.github.io/img/apple-touch-icon-144-precomposed.png">
@@ -29,9 +29,9 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Dead Simple Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo" />
-<meta name="twitter:description" content="Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error, I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.
-Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize." />
+<meta name="twitter:title" content="Flicker-Free Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo" />
+<meta name="twitter:description" content="Signed Distance Fields are a I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error,I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.  
+  Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.zw; // calculate the area under the pixel texelCoverage = saturate(texelCoverage); //clamp texelCoverage to [0." />
 <meta name="twitter:site" content="https://julhe.github.io/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image" content="">
@@ -39,11 +39,11 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Dead Simple Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo">
-<meta property="og:description" content="Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error, I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.
-Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize." />
+<meta property="og:title" content="Flicker-Free Filtering for SDFs Masks :: julhe.github.io — A simple, retro theme for Hugo">
+<meta property="og:description" content="Signed Distance Fields are a I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error,I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.  
+  Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.zw; // calculate the area under the pixel texelCoverage = saturate(texelCoverage); //clamp texelCoverage to [0." />
 <meta property="og:url" content="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/" />
-<meta property="og:site_name" content="Dead Simple Filtering for SDFs Masks" />
+<meta property="og:site_name" content="Flicker-Free Filtering for SDFs Masks" />
 <meta property="og:image" content="">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
@@ -127,7 +127,7 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
     
 <div class="post">
   <h1 class="post-title">
-    <a href="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/">Dead Simple Filtering for SDFs Masks</a></h1>
+    <a href="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/">Flicker-Free Filtering for SDFs Masks</a></h1>
   <div class="post-meta">
       
     <span class="post-date">
@@ -144,9 +144,13 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
   <div class="post-content">
     
 
-<h1 id="intro">Intro</h1>
+<p>Signed Distance Fields are a I recenlty needed them for a project and I coudn&rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp; Error,I figured out a pretty simple and stable methode I won&rsquo;t withheld any futher.
+<div id="theeJsExampleContainer">
+<canvas id="threeJsExample" width="400" height ="420" style="width: 400px; height: 420px";></canvas>
+</div></p>
 
-<p>Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp; Error, I figured out a pretty simple and stable methode I won&rsquo;t withheld any futher.</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js" integrity="sha256-HJ7j+71YYw6Kcs8THwQV9lXmPOcR0eXlg7n8KRTZsyA=" crossorigin="anonymous"></script>
+<script src="sdfExample.js" type="module"></script>
 
 <h1 id="code">Code</h1>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">#define inverseLerp(a,b,x) ((x-a)/(b-a))
@@ -154,11 +158,11 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sa
 ... 
 
 half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ;
-half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.zw; <span style="color:#75715e">// calculate texelCoverage
+half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.zw; <span style="color:#75715e">// calculate the area under the pixel
 </span><span style="color:#75715e"></span>texelCoverage = saturate(texelCoverage); <span style="color:#75715e">//clamp texelCoverage to [0..1]
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// you can also use smoothstep(), but inverseLerp uses less instructions 
-</span><span style="color:#75715e"></span>half filteredSdf = saturate(inverseLerp(-texelSize, texelSize, rawSdf * <span style="color:#ae81ff">2.0</span> - <span style="color:#ae81ff">1.0</span>)) ;
+</span><span style="color:#75715e"></span>half filteredSdf = saturate(inverseLerp(-texelCoverage, texelCoverage, rawSdf * <span style="color:#ae81ff">2.0</span> - <span style="color:#ae81ff">1.0</span>)) ;
 </code></pre></div>
 <h1 id="how-does-this-work">How does this work?</h1>
 

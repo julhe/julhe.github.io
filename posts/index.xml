@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on julhe.github.io</title>
+    <title>Posts on Julian Heinken&#39;s Webpage</title>
     <link>https://julhe.github.io/posts/</link>
-    <description>Recent content in Posts on julhe.github.io</description>
+    <description>Recent content in Posts on Julian Heinken&#39;s Webpage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 May 2019 20:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2019 20:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Dead Simple Filtering for SDFs Masks</title>
-      <link>https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/</link>
+      <title>General BRDF Optimizations</title>
+      <link>https://julhe.github.io/posts/general-brdf-optimizations/</link>
+      <pubDate>Mon, 09 Sep 2019 20:00:00 +0100</pubDate>
+      
+      <guid>https://julhe.github.io/posts/general-brdf-optimizations/</guid>
+      <description> BRDF Identity HalfVector identity Unity Demo  </description>
+    </item>
+    
+    <item>
+      <title>Anti-aliasing for SDFs Textures</title>
+      <link>https://julhe.github.io/posts/anti-aliasing-for-sdfs-textures/</link>
       <pubDate>Fri, 31 May 2019 20:00:00 +0100</pubDate>
       
-      <guid>https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/</guid>
-      <description>Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&amp;rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp;amp; Error, I figured out a pretty simple and stable methode I won&amp;rsquo;t withheld any futher.
-Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  ... half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.</description>
+      <guid>https://julhe.github.io/posts/anti-aliasing-for-sdfs-textures/</guid>
+      <description>I&amp;rsquo;m going to show a drop-in method to render Signed-Distance-Fields (SDFs) without aliasing.
+To understand this post you should know:
+ what Signed-Distance-Fields are and also have some shader knowledge  If not, no worries! Chris Cummings has a great introduction
+Web Demo   LMB: Rotate Camera, MW: Zoom, RMB: Pan Camera   
+Teapot model downloaded from Morgan McGuire&amp;rsquo;s Computer Graphics Archive
+In a Signed Distance Field (SDF) you store the distance to the closest point of a shape, say an UI icon or the shape of a shadow.</description>
     </item>
     
     <item>

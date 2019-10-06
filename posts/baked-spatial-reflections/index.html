@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-    <title>Baked Surface Reflections :: julhe.github.io — A simple, retro theme for Hugo</title>
+    <title>Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -20,7 +20,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 
 
-
+<link rel="stylesheet" href="https://julhe.github.io/style.css">
 
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://julhe.github.io/img/apple-touch-icon-144-precomposed.png">
@@ -30,7 +30,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Baked Surface Reflections :: julhe.github.io — A simple, retro theme for Hugo" />
+<meta name="twitter:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo" />
 <meta name="twitter:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
  Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
@@ -41,7 +41,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Baked Surface Reflections :: julhe.github.io — A simple, retro theme for Hugo">
+<meta property="og:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo">
 <meta property="og:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
  Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
@@ -74,7 +74,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
     <div class="header__logo">
       <a href="/">
   <div class="logo">
-    julhe
+    julian heinken
   </div>
 </a>
 
@@ -163,7 +163,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 <p>
   <figure class="center" >
-    <img src="baked%20reflection%20-%20example%20atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;"  />
+    <img src="example_atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;"  />
     
       <figcaption class="center"  style="color: black;" >A reflection atlas with 64 captures</figcaption>
     
@@ -174,21 +174,28 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 
 <h1 id="baking-the-atlas">Baking the Atlas</h1>
 
-<p>For each slice:
-1. Render your target mesh in UV Layout and store world-position, normal and tangent
-2. Render the reflection cubemap at the world position
-3. Bring the reflection cubemap into Tangent Space (= hemisphere points in the same direction as the surface it sits on).
-4. Convert the hemisphere into a texture slice
-5. Put the Flatted-hemisphere into atlas</p>
+<p>For each slice:</p>
+
+<ol>
+<li>Render your target mesh in UV Layout and store world-position, normal and tangent into different rendertargets</li>
+<li>Use those rendertargets to get the world positions for the cubemaps</li>
+<li>Render the Cubemaps</li>
+<li>Bring the Cubemap into Tangent Space (= hemisphere points in the same direction as the surface it sits on).</li>
+<li>Convert the hemisphere into a texture slice</li>
+<li>Put the Flatted-hemisphere into atlas</li>
+</ol>
 
 <h1 id="sampling-the-atlas">Sampling the Atlas</h1>
 
-<p>For each pixel:
-1. Obtain the slice position by the UV
-2. Get the reflection ray
-3. Bring the ray into tangent space
-4. Convert the ray into octahedron / texture coordinate
-5. Use slice base position and ray to sample the 4 clostest slices and interpolate them.</p>
+<p>For each pixel:</p>
+
+<ol>
+<li>Obtain the slice position by the UV</li>
+<li>Get the reflection ray</li>
+<li>Bring the ray into tangent space</li>
+<li>Convert the ray into octahedron / texture coordinate</li>
+<li>Use slice base position and ray to sample the 4 clostest slices and interpolate them.</li>
+</ol>
 
 <p>Look into the example implementation on <a href="https://github.com/julhe/BakedReflectionsUnity">GitHub</a> for more details</p>
 
@@ -221,9 +228,9 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
     <div class="pagination__buttons">
       
       <span class="button previous">
-        <a href="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/">
+        <a href="https://julhe.github.io/posts/anti-aliasing-for-sdfs-textures/">
           <span class="button__icon">←</span>
-          <span class="button__text">Dead Simple Filtering for SDFs Masks</span>
+          <span class="button__text">Anti-aliasing for SDFs Textures</span>
         </a>
       </span>
       
@@ -258,7 +265,7 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 </footer>
 
 <script src="https://julhe.github.io/assets/main.js"></script>
-<script src="https://julhe.github.io/assets/prism.js"></script>
+
 
 
 

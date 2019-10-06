@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   
-    <title>Posts :: julhe.github.io — A simple, retro theme for Hugo</title>
+    <title>Posts :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -18,7 +18,7 @@
 
 
 
-
+<link rel="stylesheet" href="https://julhe.github.io/style.css">
 
 
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://julhe.github.io/img/apple-touch-icon-144-precomposed.png">
@@ -28,7 +28,7 @@
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Posts :: julhe.github.io — A simple, retro theme for Hugo" />
+<meta name="twitter:title" content="Posts :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo" />
 <meta name="twitter:description" content="" />
 <meta name="twitter:site" content="https://julhe.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -37,7 +37,7 @@
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Posts :: julhe.github.io — A simple, retro theme for Hugo">
+<meta property="og:title" content="Posts :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo">
 <meta property="og:description" content="" />
 <meta property="og:url" content="https://julhe.github.io/posts/" />
 <meta property="og:site_name" content="Posts" />
@@ -49,7 +49,7 @@
 
 
 
-  <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="julhe.github.io" />
+  <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Julian Heinken&#39;s Webpage" />
 
 
 
@@ -70,7 +70,7 @@
     <div class="header__logo">
       <a href="/">
   <div class="logo">
-    julhe
+    julian heinken
   </div>
 </a>
 
@@ -135,7 +135,35 @@
   
   <div class="post on-list">
     <h1 class="post-title">
-      <a href="https://julhe.github.io/posts/dead-simple-filtering-for-sdfs-masks/">Dead Simple Filtering for SDFs Masks</a></h1>
+      <a href="https://julhe.github.io/posts/general-brdf-optimizations/">General BRDF Optimizations</a></h1>
+    <div class="post-meta">
+      <span class="post-date">
+        2019-09-09
+      </span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      
+      
+    </div>
+
+    
+    <div>
+      <a class="read-more button"
+        href="/posts/general-brdf-optimizations/">Read more →</a>
+    </div>
+    
+  </div>
+  
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="https://julhe.github.io/posts/anti-aliasing-for-sdfs-textures/">Anti-aliasing for SDFs Textures</a></h1>
     <div class="post-meta">
       <span class="post-date">
         2019-05-31
@@ -149,17 +177,14 @@
 
     <div class="post-content">
       
-      
-      Intro Signed Distance Fields are amazing. They allow you to render fonts at a. I recenlty needed them for a project and I coudn&rsquo;t find a stable filtering methode for them as a texture. After some Trial &amp; Error, I figured out a pretty simple and stable methode I won&rsquo;t withheld any futher.
-Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  &hellip; half rawSdf = _Mask.Sample(sampler_Mask, i.uv).r ; half texelCoverage = fwidth(i.uv) * _Mask_TexelSize.
-      
+      I’m going to show methodes to render Signed-Distance-Fields (SDFs) without aliasing.
       
     </div>
 
     
     <div>
       <a class="read-more button"
-        href="/posts/dead-simple-filtering-for-sdfs-masks/">Read more →</a>
+        href="/posts/anti-aliasing-for-sdfs-textures/">Read more →</a>
     </div>
     
   </div>
@@ -180,11 +205,7 @@ Code #define inverseLerp(a,b,x) ((x-a)/(b-a))  &hellip; half rawSdf = _Mask.Samp
 
     <div class="post-content">
       
-      
-      For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:
- Not bad, huh?
-Reflections by the surface While this looks good enough, with this amount of probes it&rsquo;s a engine meltdown.
-      
+      Fast Methode for spatial reflections, or indirect specular
       
     </div>
 
@@ -255,7 +276,7 @@ The reason is simple: the screen center, which is also center of the vignett, is
 </footer>
 
 <script src="https://julhe.github.io/assets/main.js"></script>
-<script src="https://julhe.github.io/assets/prism.js"></script>
+
 
 
 
