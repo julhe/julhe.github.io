@@ -26,17 +26,6 @@ In a Signed Distance Field (SDF) you store the distance to the closest point of 
     </item>
     
     <item>
-      <title>Baked Surface Reflections</title>
-      <link>https://julhe.github.io/posts/baked-spatial-reflections/</link>
-      <pubDate>Wed, 21 Nov 2018 20:24:00 +0100</pubDate>
-      
-      <guid>https://julhe.github.io/posts/baked-spatial-reflections/</guid>
-      <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
- Not bad, huh?
-Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
-    </item>
-    
-    <item>
       <title>Fixing screenspace effects for VR</title>
       <link>https://julhe.github.io/posts/fixing-screenspace-effects-for-vr/</link>
       <pubDate>Thu, 21 Dec 2017 20:24:00 +0100</pubDate>
