@@ -39,7 +39,7 @@ The reason is simple: the screen center, which is also center of the vignett, is
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://julhe.github.io/about/</guid>
-      <description>This is Julian Heinkens site, mainly for his Computer Graphics stuff. He&amp;rsquo;s a twenty-something programmer from germany.
+      <description>This is Julian Heinkens site, mainly for his portfolio and computer graphics stuff. He&amp;rsquo;s a (twenty-something) programmer from hamburg, germany.
  Twitter: @schneckerstein CV: LinkedIn  </description>
     </item>
     
@@ -49,8 +49,8 @@ The reason is simple: the screen center, which is also center of the vignett, is
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://julhe.github.io/showcase/</guid>
-      <description>Profesional Work Battle Planet - Judgment Day //Threaks GmbH Leaderboard Implementation for Steam(works), Playstation 4 and Switch Optimizations for Switch Plattform Additional UI and Graphics Programming  Offical Site
-Lufthansa Air Swing VR Experience //Demodern GmbH A Swing but spiced up with VR! Entire Game-Logic implementation in C# (Unity) System that translates the motion of the swing into VR with Vive Tracker Additional graphical effects in HLSL  Offical Project Page</description>
+      <description>Professional Work Battle Planet - Judgment Day //Threaks GmbH Leaderboard Implementation for Steam(works), Playstation 4 and Switch Optimizations for Switch Plattform Additional UI and Graphics Programming  Offical Site
+Lufthansa Air Swing VR Experience //Demodern GmbH Swing in VR about New York, Capetown, San Francisco or Vieanna Entire Game-Logic implementation in C# (Unity) System that translates the motion of the swing into VR with Vive Tracker Additional graphical effects in HLSL  Offical Project Page</description>
     </item>
     
   </channel>
