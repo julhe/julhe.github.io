@@ -9,8 +9,7 @@ body {
 .post-title,
 .post-date
 {
-  /* font-family: 'Fira Code'; */
-
+   font-family: 'Fira Code'; 
 }
 
 /* helper for threeJS examples */ 
