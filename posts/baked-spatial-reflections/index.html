@@ -144,7 +144,19 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
   
 
-  <div class="post-content">
+
+  <div class="post-content">  
+    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#reflections-by-the-surface">Reflections by the surface</a></li>
+<li><a href="#baking-the-atlas">Baking the Atlas</a></li>
+<li><a href="#sampling-the-atlas">Sampling the Atlas</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#source">Source</a></li>
+</ul>
+</nav>
     
 
 <p>For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:</p>
@@ -226,6 +238,13 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
       <hr />
     </div>
     <div class="pagination__buttons">
+      
+      <span class="button previous">
+        <a href="https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Basic Voronoi with Unity and Burst</span>
+        </a>
+      </span>
       
       
       <span class="button next">

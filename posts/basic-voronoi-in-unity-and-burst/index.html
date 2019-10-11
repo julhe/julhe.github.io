@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Basic Voronoi with Unity and Burst :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="I recently showed some Voronoi experiments stuff on twiiter, so here is a write up off what’s happening here.  basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019  
+Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+There are many ways to compute a Voronoi diagram."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/" />
+
+
+<link rel="stylesheet" href="https://julhe.github.io/assets/style.css">
+
+  <link rel="stylesheet" href="https://julhe.github.io/assets/green.css">
+
+
+
+<link rel="stylesheet" href="https://julhe.github.io/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://julhe.github.io/img/apple-touch-icon-144-precomposed.png">
+
+<link rel="shortcut icon" href="https://julhe.github.io/img/favicon/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Basic Voronoi with Unity and Burst :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo" />
+<meta name="twitter:description" content="I recently showed some Voronoi experiments stuff on twiiter, so here is a write up off what’s happening here.  basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019  
+Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+There are many ways to compute a Voronoi diagram." />
+<meta name="twitter:site" content="https://julhe.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image" content="">
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Basic Voronoi with Unity and Burst :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo">
+<meta property="og:description" content="I recently showed some Voronoi experiments stuff on twiiter, so here is a write up off what’s happening here.  basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019  
+Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+There are many ways to compute a Voronoi diagram." />
+<meta property="og:url" content="https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/" />
+<meta property="og:site_name" content="Basic Voronoi with Unity and Burst" />
+<meta property="og:image" content="">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2019-10-10 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="">
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    julian heinken
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/">Basic Voronoi with Unity and Burst</a></h1>
+  <div class="post-meta">
+      
+    <span class="post-date">
+      2019-10-10
+    </span>
+    
+    
+  </div>
+
+  
+
+  
+
+
+  <div class="post-content">  
+    
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#voronoi-101">Voronoi 101</a></li>
+<li><a href="#burst-and-job-system">Burst and Job-System</a></li>
+<li><a href="#the-algorithm">The Algorithm</a></li>
+<li><a href="#bring-in-the-noise">Bring in the Noise</a></li>
+<li><a href="#source-code">Source Code</a></li>
+</ul>
+</nav>
+    
+
+<p>I recently showed some Voronoi experiments stuff on twiiter, so here is a write up off what’s happening here.
+<center>
+<blockquote class="twitter-tweet" data-dnt="true" data-theme="dark"><p lang="it" dir="ltr">basic voronoi in unity ECS✅ <a href="https://t.co/TIsxNuCJcG">pic.twitter.com/TIsxNuCJcG</a></p>&mdash; Julian (@schneckerstein) <a href="https://twitter.com/schneckerstein/status/1181905921796136960?ref_src=twsrc%5Etfw">October 9, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center></p>
+
+<hr />
+
+<h1 id="voronoi-101">Voronoi 101</h1>
+
+<p>A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&rsquo;s boundaries, until it reaches the boundary of another seed.</p>
+
+
+  <figure class="center" >
+    <img src="voronoi_grow.gif"   style="border-radius: 8px;"  />
+    
+  </figure>
+
+
+
+<p>There are many ways to compute a Voronoi diagram. Usually you can get an exact geometric result with <a href="https://jacquesh.github.io/post/fortunes-algorithm/">Fortunes algorithm</a> or by <a href="https://pages.mtu.edu/~shene/PUBLICATIONS/2004/Hull2VD.pdf">exploiting the hidden links between the convex hull, the Delaunay-Triangulation and the Voronoi diagramm</a>.</p>
+
+<p>But I will use a simple 64x64 grid, further called Voronoi map. This will not lead to an actual precise geometric representation, but something that is (hopefully) understandable and easier to modify.</p>
+
+<p>Before we go into detail, a little primer on Burst and Jobs.</p>
+
+<hr />
+
+<h1 id="burst-and-job-system">Burst and Job-System</h1>
+
+<p>For our Voronoi map, we are going to iterate over every pixel. Most straightforward is a for loop:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; vornoiMap.Length; i++){
+    <span style="color:#75715e">// compute Voronoi
+</span><span style="color:#75715e"></span>}
+</code></pre></div>
+<p>But we are dealing with lots of pixels here. Even at a resolution of 64x64, this means 4096 pixels, multiplied by the number of sites. Therefore, are going to use Burst and Jobs. The Unity Job system allows us to split our for-loop across multiple threads.</p>
+
+<p>In pseudocode:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">for</span> batch <span style="color:#66d9ef">in</span> allBatches
+    <span style="color:#66d9ef">new</span> Thread() {
+        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; batch.Length; i++){
+            <span style="color:#75715e">// compute voronoi
+</span><span style="color:#75715e"></span>        }
+    }
+</code></pre></div>
+<p>On a machine with 4 CPU-Cores, this can mean a performance improvement of up to 4x.</p>
+
+<p>The second thing we are going to use is the Burst Compiler. Very roughly speaking, it optimizes the bytecode generated by the C# compiler even further by utilizing special CPU instructions and deeper analysis of the code.</p>
+
+<p>Burst however is not applied onto our whole code. Instead, it is meant to be applied on single Jobs. A further requirement is the absence of any managed variables. In practice, that means we can only use structs and basic variable types such as float or int.</p>
+
+<p>Here is an (incomplete) table for the correct equivalent:</p>
+
+<table>
+<thead>
+<tr>
+<th>Classic Unity</th>
+<th>Burst Compatible</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Vector2/3/4</code></td>
+<td><code>float2/3/4</code></td>
+</tr>
+
+<tr>
+<td><code>VectorInt2/3/4</code></td>
+<td><code>int2/3/4</code></td>
+</tr>
+
+<tr>
+<td><code>foo[]</code></td>
+<td><code>NativeArray&lt;foo&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>List&lt;foo&gt;</code></td>
+<td><code>NativeList&lt;foo&gt;</code></td>
+</tr>
+
+<tr>
+<td><code>Vector2/3/4.Distance()</code></td>
+<td><code>math.distance()</code></td>
+</tr>
+
+<tr>
+<td><code>Mathf.Sin()</code></td>
+<td><code>math.sin()</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>Also, we must manage some memory on our own. This means that we have to call <code>.Dispose()</code> on <code>NativeArray/List&lt;&gt;</code> struct once we don&rsquo;t need it anymore.</p>
+
+<h1 id="the-algorithm">The Algorithm</h1>
+
+<p>Let&rsquo;s jump back into Voronoi land and code the job that generates the Voronoi Map. For this section I will let the code comments speak, as I&rsquo;ve already explained the basic idea of the Voronoi diagram. Also note here that I explicitly tell Unity if a variable is read/write only, which makes the purpose clearer for both the compiler and any potential reader. 😉</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#a6e22e">[BurstCompile]</span>
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">RenderVoronoi</span> : IJobParallelFor{
+    <span style="color:#75715e">// the data that we are going to use
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">    [ReadOnly]</span> <span style="color:#66d9ef">public</span> int2 resolution; <span style="color:#75715e">// the resolution in cells/pixels
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">    [ReadOnly]</span> <span style="color:#66d9ef">public</span> float2 cellsMinWs, cellsMaxWs; <span style="color:#75715e">// world space boundaries
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">    [ReadOnly]</span> <span style="color:#66d9ef">public</span> NativeArray&lt;float3&gt; sites; <span style="color:#75715e">// list of the position of all sites
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">    [ReadOnly]</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> ExpandLimit; <span style="color:#75715e">//limits the expansion of sites, good for visualizations
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// the data that we are going to put out
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">    [WriteOnly]</span> <span style="color:#66d9ef">public</span> NativeArray&lt;<span style="color:#66d9ef">int</span>&gt; VoronoiMap; <span style="color:#75715e">// output position map
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// how we are going to compute the data
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">int</span> pixelIndex){
+        <span style="color:#75715e">// figure out the location of the cell in world space
+</span><span style="color:#75715e"></span>        float2 pixelPositionWs;
+        <span style="color:#75715e">// first, we turn the pixelIndex into a 2D space coordinate...
+</span><span style="color:#75715e"></span>        pixelPositionWs.x = pixelIndex % resolution.x;
+        pixelPositionWs.y = pixelIndex / resolution.x;
+        <span style="color:#75715e">//note: it would be actually faster to stay in pixel coordinates from here on and convert the sites into pixel coordinates
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// ...now normalized position into a range [0,1], so that 0 = cellsMinWs and 1 = cellsMaxWs...
+</span><span style="color:#75715e"></span>        pixelPositionWs.x /= resolution.x; 
+        pixelPositionWs.y /= resolution.y;
+        <span style="color:#75715e">// ...and transform into world space
+</span><span style="color:#75715e"></span>        pixelPositionWs = math.lerp(cellsMinWs, cellsMaxWs, pixelPositionWs);
+
+        <span style="color:#75715e">// keep track of the shortest distance
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">float</span> closestSiteDistance = ExpandLimit; <span style="color:#75715e">// if you don&#39;t want to limit, use float.PositiveInfinty
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> closestSiteId = -<span style="color:#ae81ff">1</span>;
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> siteId = <span style="color:#ae81ff">0</span>; siteId &lt; sites.Length; siteId++){
+            float2 sitePosition = sites[siteId].xy; 
+            <span style="color:#66d9ef">float</span> siteDistance = math.distance(sitePosition, pixelPositionWs); <span style="color:#75715e">// compute the distance between cell and site
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> (siteDistance &lt; closestSiteDistance) {
+                <span style="color:#75715e">// if the curret site is closer than the previous one, remember it
+</span><span style="color:#75715e"></span>                closestSiteDistance = siteDistance; 
+                closestSiteId = siteId;
+            }
+        }
+        VoronoiMap[pixelIndex] = closestSiteId; <span style="color:#75715e">// write the result back
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div>
+<p>You can find the entire implementation in the gist at the very end of this post (version without noise).</p>
+
+<h1 id="bring-in-the-noise">Bring in the Noise</h1>
+
+<p>In the second tweet, I added noise to make the whole thing more interesting.
+<center>
+<blockquote class="twitter-tweet" data-conversation="none" data-dnt="true" data-theme="dark"><p lang="en" dir="ltr">noise makes everything better™️ <a href="https://t.co/IXV8FYozmk">pic.twitter.com/IXV8FYozmk</a></p>&mdash; Julian (@schneckerstein) <a href="https://twitter.com/schneckerstein/status/1181924753776500737?ref_src=twsrc%5Etfw">October 9, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+This is really simple to achieve, at least for our pixel Voronoi approach. The <a href="https://docs.unity3d.com/Packages/com.unity.mathematics@1.1/manual/index.html">Unity Mathematics Library</a> also has built in procedural noise functions, which also makes the implementation straightforward. Unfortunately, the library is poorly documented, so I don&rsquo;t know what exact function <code>snoise()</code> implements, but it looks good enough&hellip;</p>
+
+<p>Anyway, Noise in our case is applied like this (inside the RenderVoronoi Job):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">float</span> noise = math.abs(Unity.Mathematics.noise.snoise((sitePosition + pixelPositionWs) * NoiseTiling));
+noise *= NoiseScale;
+siteDistance += noise;
+</code></pre></div>
+<p>Note that I use the sum of  <code>sitePosition</code> and  <code>pixelPositionWs</code>. This is important, because if we just use the pixel position, the noise would be the same for all site and therefore would have no effect.</p>
+
+<hr />
+
+<h1 id="source-code">Source Code</h1>
+
+<script src="https://gist.github.com/julhe/1223091d27782e7f0ec38ceb065ab7ac.js"></script>
+
+  </div>
+  
+  <div class="pagination">
+    <div class="pagination__title">
+      <span
+        class="pagination__title-h">Read other posts</span>
+      <hr />
+    </div>
+    <div class="pagination__buttons">
+      
+      
+      <span class="button next">
+        <a href="https://julhe.github.io/posts/baked-spatial-reflections/">
+          <span class="button__text">Baked Surface Reflections</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+      
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2019 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="https://julhe.github.io/assets/main.js"></script>
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

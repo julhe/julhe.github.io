@@ -6,10 +6,22 @@
     <description>Recent content on Julian Heinken&#39;s Webpage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Nov 2018 20:24:00 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 10 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://julhe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Basic Voronoi with Unity and Burst</title>
+      <link>https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/</guid>
+      <description>I recently showed some Voronoi experiments stuff on twiiter, so here is a write up off what’s happening here.  basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019  
+Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+There are many ways to compute a Voronoi diagram.</description>
+    </item>
     
     <item>
       <title>Baked Surface Reflections</title>
@@ -49,8 +61,8 @@ The reason is simple: the screen center, which is also center of the vignett, is
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://julhe.github.io/showcase/</guid>
-      <description>Professional Work Battle Planet - Judgment Day //Threaks GmbH Leaderboard Implementation for Steam(works), Playstation 4 and Switch Optimizations for Switch Plattform Additional UI and Graphics Programming  Offical Site
-Lufthansa Air Swing VR Experience //Demodern GmbH Swing in VR about New York, Capetown, San Francisco or Vieanna Entire Game-Logic implementation in C# (Unity) System that translates the motion of the swing into VR with Vive Tracker Additional graphical effects in HLSL  Offical Project Page</description>
+      <description>Professional Work Battle Planet - Judgment Day //Threaks GmbH Leaderboard Implementation for Steam(works), Playstation 4 and Switch Optimizations for Switch Plattform Additional UI and Graphics Programming Freelance Work from July to August 2019  Offical Site
+Lufthansa Air Swing VR Experience //Demodern GmbH Swing in VR about New York, Capetown, San Francisco or Vieanna Entire Game-Logic implementation in C# (Unity) System that translates the motion of the swing into VR with Vive Tracker Additional graphical effects in HLSL Freelance Work from Feburary to March 2019  Offical Project Page</description>
     </item>
     
   </channel>

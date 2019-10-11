@@ -1,21 +1,6 @@
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-/* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap'); */
-/* override default font with Open Sans for better readability*/
 body {
-  font-family:  'Open Sans', sans-serif;
-  /* font-size: large; */
   color: #EEE;
-  /* font-family: Helvetica, sans-serif; */
-
-  /* font-kerning: auto; */
-  /* text-rendering: auto; */
-  /* font-size: 15px; */
-  line-height: 1.8em;
-  letter-spacing: 0.04em;
-  /* font-family: verdana, sans-serif; */
-  /* font-family: 'Noticia Text', serif; */
-  
+  font-family: Helvetica, Arial, sans-serif  
 }
 
 /* still use fira code for non body text, because it looks nice :) */
@@ -24,7 +9,7 @@ body {
 .post-title,
 .post-date
 {
-  font-family: 'Fira Code';
+  /* font-family: 'Fira Code'; */
 
 }
 
@@ -35,4 +20,3 @@ body {
   left: 0px; 
   z-index: 0;
 }
-

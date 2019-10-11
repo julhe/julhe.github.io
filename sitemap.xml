@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://julhe.github.io/posts/baked-spatial-reflections/</loc>
-    <lastmod>2018-11-21T20:24:00+01:00</lastmod>
+    <loc>https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/</loc>
+    <lastmod>2019-10-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://julhe.github.io/</loc>
-    <lastmod>2018-11-21T20:24:00+01:00</lastmod>
+    <lastmod>2019-10-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://julhe.github.io/posts/</loc>
+    <lastmod>2019-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://julhe.github.io/posts/baked-spatial-reflections/</loc>
     <lastmod>2018-11-21T20:24:00+01:00</lastmod>
   </url>
   
