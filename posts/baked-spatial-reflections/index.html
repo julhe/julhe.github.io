@@ -174,12 +174,16 @@ Reflections by the surface While this looks good enough, with this amount of pro
 <p>I went with a soloution that unwraps the reflection probe on to a 2D texture by (ab)using <a href="https://knarkowicz.wordpress.com/2014/04/16/octahedron-normal-vector-encoding/">Octahedron Encoding</a> which maps a normalized, three-dimentional vector onto a two dimentional one. One can just use this compressed two dimentional vector as a UV coordinate, after scaling it from [-1, 1] to [0,1]. This texture is placed into a giant atlas which contains all unwraped reflection probes for the object.</p>
 
 <p>
+ 
+ 
+
   <figure class="center" >
-    <img src="example_atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;"  />
+    <img src="/posts/baked-spatial-reflections/example_atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;" width="512" height="512"  />
     
       <figcaption class="center"  style="color: black;" >A reflection atlas with 64 captures</figcaption>
     
   </figure>
+
 
 
 For interpolation, each neighbour tile is sampled and interpolated in a bilinear fashion.</p>
