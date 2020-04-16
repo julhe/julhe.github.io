@@ -61,8 +61,9 @@ The reason is simple: the screen center, which is also center of the vignett, is
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://julhe.github.io/showcase/</guid>
-      <description>Professional Work Battle Planet - Judgment Day //Threaks GmbH Leaderboard Implementation for Steam(works), Playstation 4 and Switch Optimizations for Switch Plattform Additional UI and Graphics Programming Freelance Work from July to August 2019  Offical Site
-Lufthansa Air Swing VR Experience //Demodern GmbH Swing in VR about New York, Capetown, San Francisco or Vieanna Entire Game-Logic implementation in C# (Unity) System that translates the motion of the swing into VR with Vive Tracker Additional graphical effects in HLSL Freelance Work from Feburary to March 2019  Offical Project Page</description>
+      <description>Professional Work Battle Planet - Judgment Day //Threaks GmbH Optimizations for Switch Plattform Additional UI and Graphics Programming Leaderboard Implementation for Steam(works), Playstation 4 and Switch Freelance Work from July to August 2019  Offical Site
+Lufthansa Air Swing VR Experience //Demodern GmbHSwing above New York, Capetown, San Francisco or Vieanna in VR!
+ Complete Game-Logic in Unity Vive Tracker system for the physical swing. Additional shaders to dynamicly blur fonts in HLSL.</description>
     </item>
     
   </channel>
