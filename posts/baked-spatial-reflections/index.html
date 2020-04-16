@@ -7,7 +7,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
- Not bad, huh?
+Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
@@ -32,7 +32,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo" />
 <meta name="twitter:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
- Not bad, huh?
+Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
 <meta name="twitter:site" content="https://julhe.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -43,7 +43,7 @@ Reflections by the surface While this looks good enough, with this amount of pro
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo">
 <meta property="og:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
- Not bad, huh?
+Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
 <meta property="og:url" content="https://julhe.github.io/posts/baked-spatial-reflections/" />
 <meta property="og:site_name" content="Baked Surface Reflections" />
@@ -144,54 +144,27 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
   
 
-
-  <div class="post-content">  
-    
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#reflections-by-the-surface">Reflections by the surface</a></li>
-<li><a href="#baking-the-atlas">Baking the Atlas</a></li>
-<li><a href="#sampling-the-atlas">Sampling the Atlas</a></li>
-<li><a href="#results">Results</a></li>
-<li><a href="#limitations">Limitations</a></li>
-<li><a href="#source">Source</a></li>
-</ul>
-</nav>
-    
-
-<p>For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:</p>
-
-<video autoplay="autoplay" loop="loop" width="720" height="405" >
+  <div class="post-content">
+    <p>For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:</p>
+<p><video autoplay="autoplay" loop="loop" width="720" height="405" ></p>
   <source src="baked reflection - many refprobes.webm" type="video/webm">
 </video>
-
 <p>Not bad, huh?</p>
-
 <h1 id="reflections-by-the-surface">Reflections by the surface</h1>
-
 <p>While this looks good enough, with this amount of probes it&rsquo;s a engine meltdown. :fire: But there is a thing we can exploit here: the reflection probes share the same resolution and are placed in a determenistic way, we can put them into a single data structure. There are Cubemap arrays, which allow to store up tp ~400 reflectionprobes, but thats not enough for my case.</p>
-
 <p>I went with a soloution that unwraps the reflection probe on to a 2D texture by (ab)using <a href="https://knarkowicz.wordpress.com/2014/04/16/octahedron-normal-vector-encoding/">Octahedron Encoding</a> which maps a normalized, three-dimentional vector onto a two dimentional one. One can just use this compressed two dimentional vector as a UV coordinate, after scaling it from [-1, 1] to [0,1]. This texture is placed into a giant atlas which contains all unwraped reflection probes for the object.</p>
-
 <p>
- 
- 
-
   <figure class="center" >
-    <img src="/posts/baked-spatial-reflections/example_atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;" width="512" height="512"  />
+    <img src="example_atlas.jpg"  alt="A reflection atlas"   style="border-radius: 8px;"  />
     
       <figcaption class="center"  style="color: black;" >A reflection atlas with 64 captures</figcaption>
     
   </figure>
 
 
-
 For interpolation, each neighbour tile is sampled and interpolated in a bilinear fashion.</p>
-
 <h1 id="baking-the-atlas">Baking the Atlas</h1>
-
 <p>For each slice:</p>
-
 <ol>
 <li>Render your target mesh in UV Layout and store world-position, normal and tangent into different rendertargets</li>
 <li>Use those rendertargets to get the world positions for the cubemaps</li>
@@ -200,11 +173,8 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 <li>Convert the hemisphere into a texture slice</li>
 <li>Put the Flatted-hemisphere into atlas</li>
 </ol>
-
 <h1 id="sampling-the-atlas">Sampling the Atlas</h1>
-
 <p>For each pixel:</p>
-
 <ol>
 <li>Obtain the slice position by the UV</li>
 <li>Get the reflection ray</li>
@@ -212,25 +182,17 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 <li>Convert the ray into octahedron / texture coordinate</li>
 <li>Use slice base position and ray to sample the 4 clostest slices and interpolate them.</li>
 </ol>
-
 <p>Look into the example implementation on <a href="https://github.com/julhe/BakedReflectionsUnity">GitHub</a> for more details</p>
-
 <h1 id="results">Results</h1>
-
 <video autoplay="autoplay" loop="loop" width="720" height="405">
   <source src="baked reflection lt.webm" type="video/webm">
 </video> 
-
-<video autoplay="autoplay" loop="loop" width="720" height="405" >
+<p><video autoplay="autoplay" loop="loop" width="720" height="405" ></p>
   <source src="baked reflection spnoza.mp4" type="video/mp4">
 </video>
-
 <h1 id="limitations">Limitations</h1>
-
 <p>This technique is rather memory heavy and may not offer the same quality as planar or raytraced reflections. It&rsquo;s also not dynamic, altough one could update a few slices overtime. But since it&rsquo;s rather low on computational load, it should be a good fit for low-end devices or VR (like shown above in Lucid Trips).</p>
-
 <h1 id="source">Source</h1>
-
 <p>The example implentaion for Unity can be found on <a href="https://github.com/julhe/BakedReflectionsUnity">GitHub</a></p>
 
   </div>
@@ -273,7 +235,7 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2019 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2020 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>
@@ -281,7 +243,7 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 </footer>
 
 <script src="https://julhe.github.io/assets/main.js"></script>
-
+<script src="https://julhe.github.io/assets/prism.js"></script>
 
 
 

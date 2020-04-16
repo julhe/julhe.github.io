@@ -4,15 +4,16 @@ body {
 }
 
 /* still use fira code for non body text, because it looks nice :) */
-.menu,
+/* .menu,
 .logo,
 .post-title,
 .post-date
 {
    font-family: "Lucida Console", Monaco, monospace
-}
+} */
 
 /* helper for threeJS examples */ 
+
 #datGuiContainer {
   position: absolute; 
   top: 0px; 

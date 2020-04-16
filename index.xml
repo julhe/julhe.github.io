@@ -17,9 +17,9 @@
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://julhe.github.io/posts/basic-voronoi-in-unity-and-burst/</guid>
-      <description>I recently showed some Voronoi experiments stuff on twitter, so here is a write up off what’s happening here  basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
-&amp;mdash; Julian (@schneckerstein) October 9, 2019  
-Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+      <description>I recently showed some Voronoi experiments stuff on twitter, so here is a write up off what’s happening here
+basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019   Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
 There are many ways to compute a Voronoi diagram.</description>
     </item>
     
@@ -30,7 +30,7 @@ Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds
       
       <guid>https://julhe.github.io/posts/baked-spatial-reflections/</guid>
       <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
- Not bad, huh?
+Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
     </item>
     
