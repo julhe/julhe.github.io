@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Julian Heinken&#39;s Webpage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 11:27:09 +0200</lastBuildDate>
     
 	<atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>TL;DR Building an Android app with Rust and SDL2</title>
+      <link>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</link>
+      <pubDate>Thu, 11 Jun 2020 11:27:09 +0200</pubDate>
+      
+      <guid>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</guid>
+      <description>Guides on this topic are still pretty sparse, so I decided to write down the steps to make this work.
+Assuming you&amp;rsquo;ve already built a functional SDL2 Program in Rust that uses OpenGL, this small guide will help you bring it onto Android. You will need:
+ A (more or less) functional SDL2 project The SDL2 Source CMake 3.8 to compile SDL 2 Android Studio with NDK and CMake Bash, to run shell scripts (*.</description>
+    </item>
     
     <item>
       <title>Basic Voronoi with Unity and Burst</title>
