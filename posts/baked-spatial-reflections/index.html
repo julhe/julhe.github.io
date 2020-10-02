@@ -2,16 +2,19 @@
 <html lang="en">
 <head>
   
-    <title>Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo</title>
+    <title>Baked Surface Reflections :: Julian Heinken&#39;s Webpage</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
-Not bad, huh?
+Your browser does not support the video tag. Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
 <link rel="canonical" href="https://julhe.github.io/posts/baked-spatial-reflections/" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 <link rel="stylesheet" href="https://julhe.github.io/assets/style.css">
@@ -30,9 +33,9 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo" />
+<meta name="twitter:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — " />
 <meta name="twitter:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
-Not bad, huh?
+Your browser does not support the video tag. Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
 <meta name="twitter:site" content="https://julhe.github.io/" />
 <meta name="twitter:creator" content="" />
@@ -41,9 +44,9 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — A simple, retro theme for Hugo">
+<meta property="og:title" content="Baked Surface Reflections :: Julian Heinken&#39;s Webpage — ">
 <meta property="og:description" content="For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
-Not bad, huh?
+Your browser does not support the video tag. Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown." />
 <meta property="og:url" content="https://julhe.github.io/posts/baked-spatial-reflections/" />
 <meta property="og:site_name" content="Baked Surface Reflections" />
@@ -146,9 +149,11 @@ Reflections by the surface While this looks good enough, with this amount of pro
 
   <div class="post-content">
     <p>For Lucid Trips I&rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&rsquo;t looked so well. But what would happend if we use thousands instead of one? I&rsquo;ve made a prototype in Unity:</p>
-<p><video autoplay="autoplay" loop="loop" width="720" height="405" ></p>
-  <source src="baked reflection - many refprobes.webm" type="video/webm">
-</video>
+<hr>
+<video autoplay="autoplay" loop="loop" width="720" height="405">
+  <source src="baked_reflection_many_refprobes.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video> 
 <p>Not bad, huh?</p>
 <h1 id="reflections-by-the-surface">Reflections by the surface</h1>
 <p>While this looks good enough, with this amount of probes it&rsquo;s a engine meltdown. :fire: But there is a thing we can exploit here: the reflection probes share the same resolution and are placed in a determenistic way, we can put them into a single data structure. There are Cubemap arrays, which allow to store up tp ~400 reflectionprobes, but thats not enough for my case.</p>
@@ -185,10 +190,13 @@ For interpolation, each neighbour tile is sampled and interpolated in a bilinear
 <p>Look into the example implementation on <a href="https://github.com/julhe/BakedReflectionsUnity">GitHub</a> for more details</p>
 <h1 id="results">Results</h1>
 <video autoplay="autoplay" loop="loop" width="720" height="405">
-  <source src="baked reflection lt.webm" type="video/webm">
+  <source src="baked_reflection_lt.webm" type="video/webm">
+  Your browser does not support the video tag.
 </video> 
-<p><video autoplay="autoplay" loop="loop" width="720" height="405" ></p>
-  <source src="baked reflection spnoza.mp4" type="video/mp4">
+<hr>
+<video autoplay="autoplay" loop="loop" width="720" height="405" >
+  <source src="baked_reflection_spnoza.mp4" type="video/mp4">
+  Your browser does not support the video tag.
 </video>
 <h1 id="limitations">Limitations</h1>
 <p>This technique is rather memory heavy and may not offer the same quality as planar or raytraced reflections. It&rsquo;s also not dynamic, altough one could update a few slices overtime. But since it&rsquo;s rather low on computational load, it should be a good fit for low-end devices or VR (like shown above in Lucid Trips).</p>

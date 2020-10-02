@@ -6,11 +6,7 @@
     <description>Recent content on Julian Heinken&#39;s Webpage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jun 2020 11:27:09 +0200</lastBuildDate>
-    
-	<atom:link href="https://julhe.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 11 Jun 2020 11:27:09 +0200</lastBuildDate><atom:link href="https://julhe.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TL;DR Building an Android app with Rust and SDL2</title>
       <link>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</link>
@@ -41,7 +37,7 @@ Assuming you&amp;rsquo;ve already built a functional SDL2 Program in Rust that u
       
       <guid>https://julhe.github.io/posts/baked-spatial-reflections/</guid>
       <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happend if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
-Not bad, huh?
+Your browser does not support the video tag. Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
     </item>
     
