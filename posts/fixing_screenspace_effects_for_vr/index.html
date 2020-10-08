@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="hugo-theme" content="Axiom 0.7.2">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/">
+  <link rel="icon" type="image/x-icon" href="/">
+  <link rel="apple-touch-icon" href="/">
+  <link rel="canonical" href="https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/">
+<link rel="preload" as="style" href="/bundle.css?v=1602184241" media="all">
+<link rel="stylesheet" href="/bundle.css?v=1602184241" media="all">
+<style>.cdata pre{color:#edf2f7;background-color:#2d3748}.cdata :not(pre)>code{color:#805ad5;background-color:#f7fafc}.chroma .err{color:#fed7d7;background-color:#9b2c2c}.chroma .hl{background-color:#4a5568}.chroma .ln{color:#a0aec0}.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr{color:#63b3ed}.chroma .kt{color:#b794f4}.chroma .na{color:#f6e05e}.chroma .nb{color:#f6ad55}.chroma .nc{color:#fc8181}.chroma .no{color:#68d391}.chroma .nd{color:#fc8181}.chroma .ne{color:#fc8181}.chroma .nf{color:#f6ad55}.chroma .nt{color:#fc8181}.chroma .l{color:#b794f4}.chroma .dl,.chroma .ld,.chroma .s,.chroma .s2,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .sd{color:#68d391}.chroma .se{color:#a0aec0}.chroma .s1,.chroma .sh,.chroma .si,.chroma .sr,.chroma .ss,.chroma .sx{color:#68d391}.chroma .il,.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .mo{color:#b794f4}.chroma .o,.chroma .ow{color:#90cdf4}.chroma .p{color:#cbd5e0}.chroma .c,.chroma .c1,.chroma .ch,.chroma .cm,.chroma .cp,.chroma .cpf,.chroma .cs{color:#a0aec0}.chroma .ge{font-style:italic}.chroma .gs{font-weight:700}
+</style>
+
+
+
+<title>Fixing screenspace effects for VR : Julian Heinken&#39;s Webpage</title>
+
+<meta property="og:title" content="Fixing screenspace effects for VR">
+<meta property="og:site_name" content="Julian Heinken&#39;s Webpage">
+<meta property="og:url" content="https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/">
+<link rel="image_src" href="https://julhe.github.io/">
+<meta property="og:image" content="https://julhe.github.io/">
+<meta property="og:image:width" content="">
+<meta property="og:image:height" content="">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_us">
+<meta property="og:description" content="In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips! Lucid Trips with vignetting But the “stock” vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt. The reason is simple: the screen center, which is also center of the vignette, is not the eye center.">
+<meta name="description" content="In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips! Lucid Trips with vignetting But the “stock” vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt. The reason is simple: the screen center, which is also center of the vignette, is not the eye center.">
+<meta property="og:updated_time" content="2017-12-21T19:24:00Z">
+<meta property="fb:app_id" content="">
+<meta name="author" content="Unknown">
+<meta property="article:author" content="https://julhe.github.io/">
+<meta property="article:published_time" content="2017-12-21T19:24:00Z">
+<meta property="article:modified_time" content="2017-12-21T19:24:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fixing screenspace effects for VR",
+  "alternativeHeadline": "In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips! \rLucid Trips with vignetting \r\rBut the “stock” vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt. The reason is simple: the screen center, which is also center of the vignette, is not the eye center.",
+  "url": "https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/",
+  "image": "https://julhe.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/"
+  },
+  "description": "In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips! \rLucid Trips with vignetting \r\rBut the “stock” vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt. The reason is simple: the screen center, which is also center of the vignette, is not the eye center.",
+  "author": {
+    "@type": "Person",
+    "name": "Unknown"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julian Heinken's Webpage",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://julhe.github.io/"
+    }
+  },
+  "datePublished": "2017-12-21T19:24:00Z",
+  "dateModified": "2017-12-21T19:24:00Z",
+  "articleBody": "\u003cp\u003eIn virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!\u003c/p\u003e\n\r\n\r\n\u003cfigure\u003e\r\n\u003cimg\r\nclass=\"mb-2 mx-auto leading-none shadow-xl\"\r\nsrc=\"/posts/fixing_screenspace_effects_for_vr/vignette-example-1.jpg\"\r\nalt=\"Lucid Trips with vignetting\"\u003e\r\n\u003cfigcaption class=\"text-sm text-right text-raven-500\"\u003e\r\n\u003cp\u003eLucid Trips with vignetting\u003c/p\u003e\r\n\u003c/figcaption\u003e\r\n\u003c/figure\u003e\r\n\n\u003cp\u003eBut the \u0026ldquo;stock\u0026rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens.  This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.\u003c/p\u003e\n\u003cp\u003eThe reason is simple: the screen center, which is also center of the vignette, is not the eye center. Every Head-Mounted-Display is different here where this position exactly is:\u003c/p\u003e\n\r\n\r\n\u003cfigure\u003e\r\n\u003cimg\r\nclass=\"mb-2 mx-auto leading-none shadow-xl\"\r\nsrc=\"/posts/fixing_screenspace_effects_for_vr/vrEyeSpace-3-768x272.png\"\r\nalt=\"Screen-Center vs. Eye-Center\"\u003e\r\n\u003cfigcaption class=\"text-sm text-right text-raven-500\"\u003e\r\n\u003cp\u003eScreen-Center vs. Eye-Center\u003c/p\u003e\r\n\u003c/figcaption\u003e\r\n\u003c/figure\u003e\r\n\n\u003cp\u003eBut one can figure out the actually eye center position.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003ePlace a point in front of the camera. From my tests, it should not be too close. 10 units seems to be alright.\u003c/li\u003e\n\u003cli\u003eThen obtain the screen coordinate of this point for each eye and pass it to the shader.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eThis works for both Single- and Multi-Pass rendering (which was the original motivation to do this).\u003c/p\u003e\n\u003chr\u003e\n\u003cp\u003eLet\u0026rsquo;s Code!\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eUnity offers \u003ccode\u003ecurrentCamera.transform.forward\u003c/code\u003e to get our cameras looking direction. Now we need to multiply the direction by our desired distance and add the world-position of our camera to it, done.\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003eVector3 currentCameraForward = transform.forward; \u003cspan style=\"color:#6272a4\"\u003e//translate vignetting direction to world space position \n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003eVector3 vignetteCenterWorldSpace = transform.position + vignetteWorldSpaceDirection * VIGNETTING_DEPTH;\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003col start=\"2\"\u003e\n\u003cli\u003eOur point is a world-space coordinate, but our vignette is calculated in viewport-space\u0026hellip; First, we need theses helper functions:\u003c/li\u003e\n\u003c/ol\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003eMatrix4x4 GetStereoWorldToViewMatrix(Camera.StereoscopicEye eye) { \n\t\u003cspan style=\"color:#ff79c6\"\u003ereturn\u003c/span\u003e currentCamera.GetStereoProjectionMatrix(eye) * currentCamera.GetStereoViewMatrix(eye); \n}\n\u003cspan style=\"color:#ff79c6\"\u003estatic\u003c/span\u003e Vector4 NormalizeScreenSpaceCords(Vector4 coords) { \n\t\u003cspan style=\"color:#6272a4\"\u003e//normalize viewport coords from [-1, 1] [0, 1] \n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003e\t\u003cspan style=\"color:#ff79c6\"\u003ereturn\u003c/span\u003e (coords * \u003cspan style=\"color:#bd93f9\"\u003e0.5f\u003c/span\u003e) + Vector4.one * \u003cspan style=\"color:#bd93f9\"\u003e0.5f\u003c/span\u003e; \n}\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eNow we calculate the viewport positions:\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003eMatrix4x4 worldToClipSpace_left = GetWorldToClipMatrix(Camera.StereoscopicEye.Left);\nviewportSpaceOffset[\u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e] =  worldToClipSpace_left.MultiplyPoint(vignetteCenterWorldSpace);\u003cspan style=\"color:#6272a4\"\u003e// get world-space position as clip-space position \n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003eviewportSpaceOffset[\u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e] = -NormalizeScreenSpaceCords(viewportSpaceOffset[\u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e]);\u003cspan style=\"color:#6272a4\"\u003e// convert clip-space [-1,1] to viewport space [0,1]. also negate the offset.\n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e// the same for the right eye...\n\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eLet’s recall the pipeline which leads us to the viewport position: world-space ⇨ view-space ⇨ clip-space ⇨ viewport-space. I don’t want to get too deep into the topic here, but if your interested, I will link some resources down below.\n3. Now we are ready for the shader! Assuming our vertex shader just passes in the pure screenspace uv coordinates, we first set up our pixel-shader.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003efloat2 screenUV = UnityStereoScreenSpaceUVAdjust(i.uv, _MainTex_ST);\n\u003cspan style=\"color:#ff79c6\"\u003e#if (UNITY_SINGLE_PASS_STEREO)\n\u003c/span\u003e\u003cspan style=\"color:#ff79c6\"\u003e\u003c/span\u003e  \u003cspan style=\"color:#6272a4\"\u003e// in single pass, we need to figure out what eye we\u0026#39;re rendering to by our selfs\n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003e  unity_StereoEyeIndex = screenUV \u0026gt; \u003cspan style=\"color:#bd93f9\"\u003e0.5\u003c/span\u003e;\t\t\n\u003cspan style=\"color:#ff79c6\"\u003e#endif\n\u003c/span\u003e\u003cspan style=\"color:#ff79c6\"\u003e\u003c/span\u003ehalf2 vignetteCenter = i.uv;\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eA vignette is basically a circle… …but smooth… we can calculate a by taking the distance to our fresh calculated eye center.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003evignetteCenter += _vignetteViewportSpaceOffset[unity_StereoEyeIndex].xy; \u003cspan style=\"color:#6272a4\"\u003e// shift to center\n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003evignetteCenter *= \u003cspan style=\"color:#bd93f9\"\u003e2.0\u003c/span\u003e; \u003cspan style=\"color:#6272a4\"\u003e// make vignette a bit tighter\n\u003c/span\u003e\u003cspan style=\"color:#6272a4\"\u003e\u003c/span\u003ehalf mask = dot(vignetteCenter, vignetteCenter); \u003cspan style=\"color:#6272a4\"\u003e// compute square length from center\n\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eNow we just need to combine it with the input…\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-csharp\" data-lang=\"csharp\"\u003ehalf4 col = tex2D(_MainTex, screenUV);\n\u003cspan style=\"color:#ff79c6\"\u003ereturn\u003c/span\u003e col * mask; \u003cspan style=\"color:#6272a4\"\u003e//compose\n\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eAnd that’s it. Look into the Unity package for the full implementation.\u003c/p\u003e\n\u003cp\u003eSome resources:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://youtu.be/cvcAjgMUPUA\"\u003eTheHappyCat - How Rendering Graphics Works in Games!\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://stackoverflow.com/questions/15588860/what-exactly-are-eye-space-coordinates#15592361\"\u003eWhat exactly are eye space coordinates? (StackOverflow)\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://docs.unity3d.com/ScriptReference/Camera.WorldToViewportPoint.html\"\u003eUnitys WorldToViewportPoint()\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e"
+}
+</script>
+
+<link rel="preload" as="script" href="/bundle.js?v=1602184241">
+
+
+</head>
+<body>
+
+  <header id="nav" class="header">
+  <div class="ax-l-i max-w-6xl">
+    <div class="ax-logo">
+      <a class="block" href="/" title="Julian Heinken&#39;s Webpage"><span class="font-semibold text-raven-900">Julian Heinken's Webpage</span></a>
+    </div>
+    <div class="ax-user">
+      <a class="p-2 w-8 h-8 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:https://julhe.github.io/" title="Search">
+        <svg class="fill-current" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M2.67 12.804c0-5.6 4.544-10.134 10.133-10.134s10.134 4.544 10.134 10.134-4.544 10.133-10.134 10.133S2.67 18.393 2.67 12.804zm28.943 16.923l-8.868-8.868c4.287-5.3 3.68-13.012-1.378-17.57S8.564-1.066 3.75 3.75s-5.017 12.558-.46 17.618 12.28 5.665 17.57 1.378l8.868 8.868a1.33 1.33 0 0 0 2.231-.597c.123-.46-.008-.952-.345-1.29h0z"/></svg>
+
+      </a>
+      <a class="p-2 block text-base leading-none text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/about">
+        About
+      </a>
+      <a class="p-2 block text-base leading-none text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/posts">
+        Posts
+      </a>
+      <a class="p-2 block text-base leading-none text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/showcase">
+        Showcase
+      </a>
+    </div>
+  </div>
+
+  
+</header>
+
+  <main>
+<div class="default-single">
+  <div class="ax-title ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <h1 class="post-title font-content-title font-normal leading-tight tracking-default text-40">Fixing screenspace effects for VR</h1>
+
+      <div class="ax-meta flex items-center mt-5">
+        <div class="flex-grow min-w-0">
+          <div class="flex items-center">
+  <div class="flex-shrink-0">
+    
+  </div>
+  <div class="flex-shrink-0 ml-2 leading-tight font-content-sans">
+    <a class="block text-sm text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="Unknown" href="https://julhe.github.io/">Unknown</a>
+    <time class="text-sm text-raven-500" datetime="2017-12-21T19:24:00Z">Dec 21, 2017 8:24PM</time>
+  </div>
+</div>
+
+        </div>
+        <div>
+          <div class="flex items-center">
+  <a class="flex-shrink-0 block text-raven-800 hover:text-raven-900" target="_blank" rel="noopener nofollow" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Fixing%20screenspace%20effects%20for%20VR%20by%20%40%23%20https%3a%2f%2fjulhe.github.io%2fposts%2ffixing_screenspace_effects_for_vr%2f"><svg class="w-6 h-6 fill-current" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M32 6.078c-1.2.522-2.458.868-3.78 1.036 1.36-.812 2.398-2.088 2.886-3.626a13.11 13.11 0 0 1-4.16 1.588C25.742 3.794 24.026 3 22.154 3a6.56 6.56 0 0 0-6.556 6.562c0 .52.044 1.02.152 1.496-5.454-.266-10.28-2.88-13.522-6.862-.566.982-.898 2.106-.898 3.316a6.57 6.57 0 0 0 2.914 5.452 6.48 6.48 0 0 1-2.964-.808v.072c0 3.188 2.274 5.836 5.256 6.446-.534.146-1.116.216-1.72.216-.42 0-.844-.024-1.242-.112.85 2.598 3.262 4.508 6.13 4.57a13.18 13.18 0 0 1-8.134 2.798c-.538 0-1.054-.024-1.57-.1C2.906 27.93 6.35 29 10.064 29c12.072 0 18.672-10 18.672-18.668 0-.3-.01-.57-.024-.848C30.014 8.56 31.108 7.406 32 6.078z"/></svg>
+</a>
+  <a class="ml-3 flex-shrink-0 block text-raven-800 hover:text-raven-900" target="_blank" rel="noopener nofollow" title="Share on Facebook" href="https://www.facebook.com/dialog/share?app_id=&display=page&href=https%3a%2f%2fjulhe.github.io%2fposts%2ffixing_screenspace_effects_for_vr%2f"><svg class="w-6 h-6 fill-current" viewBox="-7 -3.5 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M30.234 0H1.765C.8.001 0 .79 0 1.766v28.47C.001 31.2.79 32 1.766 32h15.328V19.625h-4.156V14.78h4.156v-3.564c0-4.134 2.523-6.384 6.21-6.384 1.766 0 3.284.13 3.726.2v4.32h-2.543c-2.006 0-2.394.953-2.394 2.352v3.085h4.797l-.625 4.844h-4.172V32h8.14C31.21 32 32 31.2 32 30.234V1.765C32 .8 31.21 0 30.234 0z"/></svg>
+</a>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div><div class="ax-content ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <article class="cdata">
+<p>In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!</p>
+
+
+<figure>
+<img
+class="mb-2 mx-auto leading-none shadow-xl"
+src="/posts/fixing_screenspace_effects_for_vr/vignette-example-1.jpg"
+alt="Lucid Trips with vignetting">
+<figcaption class="text-sm text-right text-raven-500">
+<p>Lucid Trips with vignetting</p>
+</figcaption>
+</figure>
+
+<p>But the &ldquo;stock&rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens.  This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.</p>
+<p>The reason is simple: the screen center, which is also center of the vignette, is not the eye center. Every Head-Mounted-Display is different here where this position exactly is:</p>
+
+
+<figure>
+<img
+class="mb-2 mx-auto leading-none shadow-xl"
+src="/posts/fixing_screenspace_effects_for_vr/vrEyeSpace-3-768x272.png"
+alt="Screen-Center vs. Eye-Center">
+<figcaption class="text-sm text-right text-raven-500">
+<p>Screen-Center vs. Eye-Center</p>
+</figcaption>
+</figure>
+
+<p>But one can figure out the actually eye center position.</p>
+<ol>
+<li>Place a point in front of the camera. From my tests, it should not be too close. 10 units seems to be alright.</li>
+<li>Then obtain the screen coordinate of this point for each eye and pass it to the shader.</li>
+</ol>
+<p>This works for both Single- and Multi-Pass rendering (which was the original motivation to do this).</p>
+<hr>
+<p>Let&rsquo;s Code!</p>
+<ol>
+<li>Unity offers <code>currentCamera.transform.forward</code> to get our cameras looking direction. Now we need to multiply the direction by our desired distance and add the world-position of our camera to it, done.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Vector3 currentCameraForward = transform.forward; <span style="color:#6272a4">//translate vignetting direction to world space position 
+</span><span style="color:#6272a4"></span>Vector3 vignetteCenterWorldSpace = transform.position + vignetteWorldSpaceDirection * VIGNETTING_DEPTH;
+</code></pre></div><ol start="2">
+<li>Our point is a world-space coordinate, but our vignette is calculated in viewport-space&hellip; First, we need theses helper functions:</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Matrix4x4 GetStereoWorldToViewMatrix(Camera.StereoscopicEye eye) { 
+	<span style="color:#ff79c6">return</span> currentCamera.GetStereoProjectionMatrix(eye) * currentCamera.GetStereoViewMatrix(eye); 
+}
+<span style="color:#ff79c6">static</span> Vector4 NormalizeScreenSpaceCords(Vector4 coords) { 
+	<span style="color:#6272a4">//normalize viewport coords from [-1, 1] [0, 1] 
+</span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">return</span> (coords * <span style="color:#bd93f9">0.5f</span>) + Vector4.one * <span style="color:#bd93f9">0.5f</span>; 
+}
+</code></pre></div><p>Now we calculate the viewport positions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">Matrix4x4 worldToClipSpace_left = GetWorldToClipMatrix(Camera.StereoscopicEye.Left);
+viewportSpaceOffset[<span style="color:#bd93f9">0</span>] =  worldToClipSpace_left.MultiplyPoint(vignetteCenterWorldSpace);<span style="color:#6272a4">// get world-space position as clip-space position 
+</span><span style="color:#6272a4"></span>viewportSpaceOffset[<span style="color:#bd93f9">0</span>] = -NormalizeScreenSpaceCords(viewportSpaceOffset[<span style="color:#bd93f9">0</span>]);<span style="color:#6272a4">// convert clip-space [-1,1] to viewport space [0,1]. also negate the offset.
+</span><span style="color:#6272a4">// the same for the right eye...
+</span></code></pre></div><p>Let’s recall the pipeline which leads us to the viewport position: world-space ⇨ view-space ⇨ clip-space ⇨ viewport-space. I don’t want to get too deep into the topic here, but if your interested, I will link some resources down below.
+3. Now we are ready for the shader! Assuming our vertex shader just passes in the pure screenspace uv coordinates, we first set up our pixel-shader.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">float2 screenUV = UnityStereoScreenSpaceUVAdjust(i.uv, _MainTex_ST);
+<span style="color:#ff79c6">#if (UNITY_SINGLE_PASS_STEREO)
+</span><span style="color:#ff79c6"></span>  <span style="color:#6272a4">// in single pass, we need to figure out what eye we&#39;re rendering to by our selfs
+</span><span style="color:#6272a4"></span>  unity_StereoEyeIndex = screenUV &gt; <span style="color:#bd93f9">0.5</span>;		
+<span style="color:#ff79c6">#endif
+</span><span style="color:#ff79c6"></span>half2 vignetteCenter = i.uv;
+</code></pre></div><p>A vignette is basically a circle… …but smooth… we can calculate a by taking the distance to our fresh calculated eye center.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">vignetteCenter += _vignetteViewportSpaceOffset[unity_StereoEyeIndex].xy; <span style="color:#6272a4">// shift to center
+</span><span style="color:#6272a4"></span>vignetteCenter *= <span style="color:#bd93f9">2.0</span>; <span style="color:#6272a4">// make vignette a bit tighter
+</span><span style="color:#6272a4"></span>half mask = dot(vignetteCenter, vignetteCenter); <span style="color:#6272a4">// compute square length from center
+</span></code></pre></div><p>Now we just need to combine it with the input…</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">half4 col = tex2D(_MainTex, screenUV);
+<span style="color:#ff79c6">return</span> col * mask; <span style="color:#6272a4">//compose
+</span></code></pre></div><p>And that’s it. Look into the Unity package for the full implementation.</p>
+<p>Some resources:</p>
+<ul>
+<li><a href="https://youtu.be/cvcAjgMUPUA">TheHappyCat - How Rendering Graphics Works in Games!</a></li>
+<li><a href="https://stackoverflow.com/questions/15588860/what-exactly-are-eye-space-coordinates#15592361">What exactly are eye space coordinates? (StackOverflow)</a></li>
+<li><a href="https://docs.unity3d.com/ScriptReference/Camera.WorldToViewportPoint.html">Unitys WorldToViewportPoint()</a></li>
+</ul>
+
+      </article>
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="footer">
+  <div class="ax-l-i max-w-6xl">
+    <nav class="flex items-center justify-center">
+    </nav>
+
+    <div class="footer-copyright text-sm text-center text-gray-500 mt-4">
+      &#169; -2020 Julian Heinken
+    </div>
+    <div class="text-sm sm:text-xs text-center text-gray-500 mt-2">
+      Powered by <a href="https://www.axiomtheme.com/?utm_source=theme-footer&utm_medium=website&utm_campaign=referral">Axiom</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/bundle.js?v=1602184241"></script>
+
+
+</body>
+</html>
