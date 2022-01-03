@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Julian Heinken</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 11:27:09 +0200</lastBuildDate><atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 16:07:14 +0200</lastBuildDate><atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Sprite Shader of the X5-Framework</title>
+      <link>https://julhe.github.io/posts/x5_framework_shaders/</link>
+      <pubDate>Mon, 03 Jan 2022 16:07:14 +0200</pubDate>
+      
+      <guid>https://julhe.github.io/posts/x5_framework_shaders/</guid>
+      <description>The X5-Framework is a Unity based Framework to create online conventions, made at Super Crowd. For the framework, I wrote the principal shader.
+Palette/Color LUT Shader The X5-Framework has sprites. A lot of sprites! And our art and level departments have even more desire to reuse these sprites in all various occasions. The shader I&amp;rsquo;ve written takes a sprite in a certain color scheme and uses a palette texture to map these to the desired colors.</description>
+    </item>
+    
     <item>
       <title>TL;DR Building an Android app with Rust and SDL2</title>
       <link>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</link>
