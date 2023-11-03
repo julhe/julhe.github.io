@@ -5,64 +5,55 @@
     <link>https://julhe.github.io/posts/</link>
     <description>Recent content in Posts on julhe.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
     <copyright>Julian Heinken</copyright>
-    <lastBuildDate>Mon, 03 Jan 2022 16:07:14 +0200</lastBuildDate><atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 16:07:14 +0200</lastBuildDate>
+    <atom:link href="https://julhe.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The General-Purpose Shader of the X5-Framework</title>
       <link>https://julhe.github.io/posts/x5_framework_shaders/</link>
       <pubDate>Mon, 03 Jan 2022 16:07:14 +0200</pubDate>
-      
       <guid>https://julhe.github.io/posts/x5_framework_shaders/</guid>
       <description>The X5-Framework is a Unity-based Framework to create online conventions, made at Super Crowd. For the framework, I wrote the general-purpose shader and art-pipeline.
 Palette/Color LUT Shader The X5-Framework has sprites. A lot of sprites! And our art and level departments have even more desire to reuse these sprites in all various occasions. The shader I&amp;rsquo;ve written takes a sprite in a certain color scheme and uses a palette texture to map these to the desired colors.</description>
     </item>
-    
     <item>
       <title>TL;DR Building an Android app with Rust and SDL2</title>
       <link>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</link>
       <pubDate>Thu, 11 Jun 2020 11:27:09 +0200</pubDate>
-      
       <guid>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</guid>
       <description>Guides on this topic are still pretty sparse, so I decided to write down the steps to make this work.
 Assuming you&amp;rsquo;ve already built a functional SDL2 Program in Rust that uses OpenGL, this small guide will help you bring it onto Android. You will need:
- A (more or less) functional SDL2 project The SDL2 Source CMake 3.8 to compile SDL 2 Android Studio with NDK and CMake Bash, to run shell scripts (*.</description>
+A (more or less) functional SDL2 project The SDL2 Source CMake 3.8 to compile SDL 2 Android Studio with NDK and CMake Bash, to run shell scripts (*.</description>
     </item>
-    
     <item>
       <title>Basic Voronoi with Unity and Burst</title>
       <link>https://julhe.github.io/posts/basic_voronoi_in_unity_and_burst/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://julhe.github.io/posts/basic_voronoi_in_unity_and_burst/</guid>
       <description>I recently showed some Voronoi experiments stuff on twitter, so here is a write up off what’s happening here
-basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
-&amp;mdash; Julian (@schneckerstein) October 9, 2019   Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
-There are many ways to compute a Voronoi diagram.</description>
+basic voronoi in unity ECS✅ pic.twitter.com/TIsxNuCJcG
+&amp;mdash; Julian (@schneckerstein) October 9, 2019 Voronoi 101 A voronoi diagram describes the partition of space by a set of seeds. Each seed expands it&amp;rsquo;s boundaries, until it reaches the boundary of another seed.
+There are many ways to compute a Voronoi diagram. Usually you can get an exact geometric result with Fortunes algorithm or by exploiting the hidden links between the convex hull, the Delaunay-Triangulation and the Voronoi diagramm.</description>
     </item>
-    
     <item>
       <title>Baked Surface Reflections</title>
       <link>https://julhe.github.io/posts/baked_spatial_reflections/</link>
       <pubDate>Wed, 21 Nov 2018 20:24:00 +0100</pubDate>
-      
       <guid>https://julhe.github.io/posts/baked_spatial_reflections/</guid>
       <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happened if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:
-Your browser does not support the video tag. Not bad, huh?
+Your browser does not support the video tag.Not bad, huh?
 Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
     </item>
-    
     <item>
       <title>Fixing screenspace effects for VR</title>
       <link>https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/</link>
       <pubDate>Thu, 21 Dec 2017 20:24:00 +0100</pubDate>
-      
       <guid>https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/</guid>
       <description>In virtual reality, vignetting is a handy tool to fight motion sickness, games like Eagle Flight do this and also our beloved Lucid Trips!
-Lucid Trips with vignetting
-But the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
+Lucid Trips with vignetting
+But the &amp;ldquo;stock&amp;rdquo; vignette that we copy from traditional games is actually not made for in-your-face-screens. This might not be obvious in the first place, but once you see the raw vignette, it makes your eyes literally hurt.
 The reason is simple: the screen center, which is also center of the vignette, is not the eye center.</description>
     </item>
-    
   </channel>
 </rss>
