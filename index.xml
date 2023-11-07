@@ -60,20 +60,22 @@ The reason is simple: the screen center, which is also center of the vignette, i
       <link>https://julhe.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://julhe.github.io/about/</guid>
-      <description>Hi!👋 I&amp;rsquo;m Julian, a video-game developer based in Hamburg, Germany. I&amp;rsquo;m partially a technical artist and a game programming generalist.
-Professional Currently, I&amp;rsquo;m co-founder and technical director (or CTO, whatever you call it) at Symmetry Break. Here, I&amp;rsquo;m responsible for all coding and tech-art matters. With the help of the GameCity Hamburg Incubator and Prototype funding, we developed a vertical slice of our first game: Misgiven.
-Before that, I worked at Super Crowd Entertainment as a graphics and general Unity programmer, helping them to build the X5-Framework.</description>
-    </item>
-    <item>
-      <title>Showcase</title>
-      <link>https://julhe.github.io/showcase/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://julhe.github.io/showcase/</guid>
-      <description>Professional Work MAG Online //Super Crowd GmbH
-The Online version of the MAG Convention, that was created due the Covid-19 pandemic.
-Principal Shader with implicit sprite sorting: Really proud to share this!😊
-For the upcomming @mag_erfurt online, I&#39;ve developed a (genuinely?!) new shader for isometric 2D rendering. As you can see this example, it does not suffer from typical sorting issues. (1/n) pic.twitter.com/Jo4IXjOK7X
-— Julian (@schneckerstein) October 18, 2020 Create and implement Shaders that would recolor sprites on-the-fly.</description>
+      <description>Hi!👋
+I&amp;rsquo;m Julian, a multidisciplinary video-game developer based in Hamburg, Germany. I do technical art and gameplay programming, mostly in Unity.
+Professional Projects Misgiven
+Symmetry Break Studio (2021+)
+Role: Technical Director, Technical Artist
+Platform: Windows
+X5-Framework
+Super Crowd
+Role: Technical Artist, Programming
+Platform: WebGL
+Battle Planet – Judgement Day
+Threaks
+Role: Switch &amp; PS4 Port., Add. Programming
+Platform: Windows, PS4, Switch
+Lucid TripsLucid Trips Team
+Role: Technical Artist, Programming</description>
     </item>
   </channel>
 </rss>
