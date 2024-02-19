@@ -10,10 +10,10 @@
     <lastBuildDate>Mon, 19 Feb 2024 00:00:00 +0200</lastBuildDate>
     <atom:link href="https://julhe.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Why You Should Always Profile</title>
-      <link>https://julhe.github.io/posts/why_you_should_always_profile/</link>
+      <title>How (Not) To Optimize Shaders</title>
+      <link>https://julhe.github.io/posts/how_not_to_optimize_shaders/</link>
       <pubDate>Mon, 19 Feb 2024 00:00:00 +0200</pubDate>
-      <guid>https://julhe.github.io/posts/why_you_should_always_profile/</guid>
+      <guid>https://julhe.github.io/posts/how_not_to_optimize_shaders/</guid>
       <description>Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays.&#xA;The effect is cheap and effective in creating the illusion of volumetric lights.&#xA;While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.</description>
     </item>
     <item>
