@@ -2,11 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://julhe.github.io/</loc>
-    <lastmod>2022-01-03T14:07:14Z</lastmod>
+    <lastmod>2024-02-18T22:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://julhe.github.io/posts/</loc>
-    <lastmod>2022-01-03T14:07:14Z</lastmod>
+    <lastmod>2024-02-18T22:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://julhe.github.io/posts/why_you_should_always_profile/</loc>
+    <lastmod>2024-02-18T22:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://julhe.github.io/posts/x5_framework_shaders/</loc>
