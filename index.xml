@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Julian Heinken</copyright>
-    <lastBuildDate>Mon, 19 Feb 2024 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 Mar 2024 12:07:14 +0200</lastBuildDate>
     <atom:link href="https://julhe.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Always-Sharp SDF Textures</title>
+      <link>https://julhe.github.io/posts/always_sharp_sdf_textures/</link>
+      <pubDate>Fri, 01 Mar 2024 12:07:14 +0200</pubDate>
+      <guid>https://julhe.github.io/posts/always_sharp_sdf_textures/</guid>
+      <description>TL;DR Render infinitely sharp and anti-aliased SDF by using adaptive sharpening. The sharpening value is calculated from the area that is formed by the Jacobian Matrix of the UV coordinate.&#xA;Web Demo 🖱 LMB: Rotate Camera, MW: Zoom, RMB: Pan Camera&#xA;Teapot model downloaded from Morgan McGuire&amp;rsquo;s Computer Graphics Archive&#xA;Intro Signed Distance Field Recap A Signed Distance Field (SDF) describes a shape by the distance to its closest feature at a given point.</description>
+    </item>
     <item>
       <title>How (Not) To Optimize Shaders</title>
       <link>https://julhe.github.io/posts/how_not_to_optimize_shaders/</link>
