@@ -24,21 +24,21 @@
       <description>Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays.&#xA;The effect is cheap and effective in creating the illusion of volumetric lights.&#xA;While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.</description>
     </item>
     <item>
-      <title>The General-Purpose Shader of the X5-Framework</title>
+      <title>The General-Purpose Shader Of The X5-Framework</title>
       <link>https://julhe.github.io/posts/x5_framework_shaders/</link>
       <pubDate>Mon, 03 Jan 2022 16:07:14 +0200</pubDate>
       <guid>https://julhe.github.io/posts/x5_framework_shaders/</guid>
       <description>The X5-Framework is a Unity-based Framework to create online conventions, made at Super Crowd. For the framework, I wrote the general-purpose shader and art-pipeline.&#xA;Palette/Color LUT Shader The X5-Framework has sprites. A lot of sprites! And our art and level departments have even more desire to reuse these sprites in all various occasions. The shader I&amp;rsquo;ve written takes a sprite in a certain color scheme and uses a palette texture to map these to the desired colors.</description>
     </item>
     <item>
-      <title>TL;DR Building an Android app with Rust and SDL2</title>
+      <title>TL;DR Building An Android App With Rust And SDL2</title>
       <link>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</link>
       <pubDate>Thu, 11 Jun 2020 11:27:09 +0200</pubDate>
       <guid>https://julhe.github.io/posts/building-an-android-app-with-rust-and-sdl2/</guid>
       <description>Guides on this topic are still pretty sparse, so I decided to write down the steps to make this work.&#xA;Assuming you&amp;rsquo;ve already built a functional SDL2 Program in Rust that uses OpenGL, this small guide will help you bring it onto Android. You will need:&#xA;A (more or less) functional SDL2 project The SDL2 Source CMake 3.8 to compile SDL 2 Android Studio with NDK and CMake Bash, to run shell scripts (*.</description>
     </item>
     <item>
-      <title>Basic Voronoi with Unity and Burst</title>
+      <title>Basic Voronoi With Unity And Burst</title>
       <link>https://julhe.github.io/posts/basic_voronoi_in_unity_and_burst/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       <guid>https://julhe.github.io/posts/basic_voronoi_in_unity_and_burst/</guid>
@@ -52,7 +52,7 @@
       <description>For Lucid Trips I&amp;rsquo;ve needed a fast technique to provide reflection to a water surface. Not only was the surface large, it was also a sphere. A single reflection probe didn&amp;rsquo;t looked so well. But what would happened if we use thousands instead of one? I&amp;rsquo;ve made a prototype in Unity:&#xA;Your browser does not support the video tag.&#xD;Not bad, huh?&#xA;Reflections by the surface While this looks good enough, with this amount of probes it&amp;rsquo;s a engine meltdown.</description>
     </item>
     <item>
-      <title>Fixing screenspace effects for VR</title>
+      <title>Fixing Screenspace Effects For VR</title>
       <link>https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/</link>
       <pubDate>Thu, 21 Dec 2017 20:24:00 +0100</pubDate>
       <guid>https://julhe.github.io/posts/fixing_screenspace_effects_for_vr/</guid>

@@ -11,9 +11,637 @@
   <link rel="icon" type="image/x-icon" href="https://julhe.github.io/">
   <link rel="apple-touch-icon" href="https://julhe.github.io/">
   <link rel="canonical" href="https://julhe.github.io/posts/how_not_to_optimize_shaders/">
-<link rel="preload" as="style" href="https://julhe.github.io/bundle.css?v=1709313176" media="all">
-<link rel="stylesheet" href="https://julhe.github.io/bundle.css?v=1709313176" media="all">
-<style>.cdata pre{color:#edf2f7;background-color:#2d3748}.cdata :not(pre)>code{color:#805ad5;background-color:#f7fafc}.chroma .err{color:#fed7d7;background-color:#9b2c2c}.chroma .hl{background-color:#4a5568}.chroma .ln{color:#a0aec0}.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr{color:#63b3ed}.chroma .kt{color:#b794f4}.chroma .na{color:#f6e05e}.chroma .nb{color:#f6ad55}.chroma .nc{color:#fc8181}.chroma .no{color:#68d391}.chroma .nd{color:#fc8181}.chroma .ne{color:#fc8181}.chroma .nf{color:#f6ad55}.chroma .nt{color:#fc8181}.chroma .l{color:#b794f4}.chroma .dl,.chroma .ld,.chroma .s,.chroma .s2,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .sd{color:#68d391}.chroma .se{color:#a0aec0}.chroma .s1,.chroma .sh,.chroma .si,.chroma .sr,.chroma .ss,.chroma .sx{color:#68d391}.chroma .il,.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .mo{color:#b794f4}.chroma .o,.chroma .ow{color:#90cdf4}.chroma .p{color:#cbd5e0}.chroma .c,.chroma .c1,.chroma .ch,.chroma .cm,.chroma .cp,.chroma .cpf,.chroma .cs{color:#a0aec0}.chroma .ge{font-style:italic}.chroma .gs{font-weight:700}
+<link rel="preload" as="style" href="https://julhe.github.io/bundle.css?v=1711547554" media="all">
+<link rel="stylesheet" href="https://julhe.github.io/bundle.css?v=1711547554" media="all">
+<style>
+  /* <code>:wrap */
+
+.cdata pre {
+
+    --tw-bg-opacity: 1;
+
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity))
+}
+
+.cdata pre {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(229 231 235 / var(--tw-text-opacity))
+}
+
+/* <code>:inline */
+
+.cdata :not(pre) > code {
+
+    --tw-bg-opacity: 1;
+
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity))
+}
+
+.cdata :not(pre) > code {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(147 51 234 / var(--tw-text-opacity))
+}
+
+/* Background */
+
+.chroma {}
+
+/* Other */
+
+.chroma .x {}
+
+/* Error */
+
+.chroma .err {
+
+    --tw-bg-opacity: 1;
+
+    background-color: rgb(153 27 27 / var(--tw-bg-opacity));
+
+    --tw-text-opacity: 1;
+
+    color: rgb(254 202 202 / var(--tw-text-opacity))
+}
+
+/* LineTableTD */
+
+.chroma .lntd {}
+
+/* LineTable */
+
+.chroma .lntable {}
+
+/* LineHighlight */
+
+.chroma .hl {
+
+    --tw-bg-opacity: 1;
+
+    background-color: rgb(55 65 81 / var(--tw-bg-opacity))
+}
+
+/* LineNumbersTable */
+
+.chroma .lnt {}
+
+/* LineNumbersTable */
+
+.chroma .lnt {}
+
+/* LineNumbers */
+
+.chroma .ln {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* Keyword */
+
+.chroma .k {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordConstant */
+
+.chroma .kc {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordDeclaration */
+
+.chroma .kd {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordNamespace */
+
+.chroma .kn {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordPseudo */
+
+.chroma .kp {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordReserved */
+
+.chroma .kr {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(96 165 250 / var(--tw-text-opacity))
+}
+
+/* KeywordType */
+
+.chroma .kt {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* Name */
+
+.chroma .n {}
+
+/* NameAttribute */
+
+.chroma .na {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(250 204 21 / var(--tw-text-opacity))
+}
+
+/* NameBuiltin */
+
+.chroma .nb {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(251 146 60 / var(--tw-text-opacity))
+}
+
+/* NameBuiltinPseudo */
+
+.chroma .bp {}
+
+/* NameClass */
+
+.chroma .nc {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(248 113 113 / var(--tw-text-opacity))
+}
+
+/* NameConstant */
+
+.chroma .no {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* NameDecorator */
+
+.chroma .nd {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(248 113 113 / var(--tw-text-opacity))
+}
+
+/* NameEntity */
+
+.chroma .ni {}
+
+/* NameException */
+
+.chroma .ne {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(248 113 113 / var(--tw-text-opacity))
+}
+
+/* NameFunction */
+
+.chroma .nf {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(251 146 60 / var(--tw-text-opacity))
+}
+
+/* NameFunctionMagic */
+
+.chroma .fm {}
+
+/* NameLabel */
+
+.chroma .nl {}
+
+/* NameNamespace */
+
+.chroma .nn {}
+
+/* NameOther */
+
+.chroma .nx {}
+
+/* NameProperty */
+
+.chroma .py {}
+
+/* NameTag */
+
+.chroma .nt {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(248 113 113 / var(--tw-text-opacity))
+}
+
+/* NameVariable */
+
+.chroma .nv {}
+
+/* NameVariableClass */
+
+.chroma .vc {}
+
+/* NameVariableGlobal */
+
+.chroma .vg {}
+
+/* NameVariableInstance */
+
+.chroma .vi {}
+
+/* NameVariableMagic */
+
+.chroma .vm {}
+
+/* Literal */
+
+.chroma .l {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralDate */
+
+.chroma .ld {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralString */
+
+.chroma .s {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringAffix */
+
+.chroma .sa {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringBacktick */
+
+.chroma .sb {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringChar */
+
+.chroma .sc {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringDelimiter */
+
+.chroma .dl {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringDoc */
+
+.chroma .sd {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringDouble */
+
+.chroma .s2 {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringEscape */
+
+.chroma .se {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringHeredoc */
+
+.chroma .sh {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringInterpol */
+
+.chroma .si {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringOther */
+
+.chroma .sx {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringRegex */
+
+.chroma .sr {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringSingle */
+
+.chroma .s1 {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralStringSymbol */
+
+.chroma .ss {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(74 222 128 / var(--tw-text-opacity))
+}
+
+/* LiteralNumber */
+
+.chroma .m {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberBin */
+
+.chroma .mb {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberFloat */
+
+.chroma .mf {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberHex */
+
+.chroma .mh {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberInteger */
+
+.chroma .mi {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberIntegerLong */
+
+.chroma .il {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* LiteralNumberOct */
+
+.chroma .mo {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(192 132 252 / var(--tw-text-opacity))
+}
+
+/* Operator */
+
+.chroma .o {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(147 197 253 / var(--tw-text-opacity))
+}
+
+/* OperatorWord */
+
+.chroma .ow {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(147 197 253 / var(--tw-text-opacity))
+}
+
+/* Punctuation */
+
+.chroma .p {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(156 163 175 / var(--tw-text-opacity))
+}
+
+/* Comment */
+
+.chroma .c {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentHashbang */
+
+.chroma .ch {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentMultiline */
+
+.chroma .cm {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentSingle */
+
+.chroma .c1 {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentSpecial */
+
+.chroma .cs {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentPreproc */
+
+.chroma .cp {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* CommentPreprocFile */
+
+.chroma .cpf {
+
+    --tw-text-opacity: 1;
+
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+/* Generic */
+
+.chroma .g {}
+
+/* GenericDeleted */
+
+.chroma .gd {}
+
+/* GenericEmph */
+
+.chroma .ge {
+
+    font-style: italic
+}
+
+/* GenericError */
+
+.chroma .gr {}
+
+/* GenericHeading */
+
+.chroma .gh {}
+
+/* GenericInserted */
+
+.chroma .gi {}
+
+/* GenericOutput */
+
+.chroma .go {}
+
+/* GenericPrompt */
+
+.chroma .gp {}
+
+/* GenericStrong */
+
+.chroma .gs {
+
+    font-weight: 700
+}
+
+/* GenericSubheading */
+
+.chroma .gu {}
+
+/* GenericTraceback */
+
+.chroma .gt {}
+
+/* GenericUnderline */
+
+.chroma .gl {}
+
+/* TextWhitespace */
+
+.chroma .w {}
 </style>
 
 <link rel="preload" as="image" href="https://julhe.github.io/posts/how_not_to_optimize_shaders/thumb.jpg">
@@ -29,8 +657,8 @@
 <meta property="og:image:height" content="">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
-<meta property="og:description" content="Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays. The effect is cheap and effective in creating the illusion of volumetric lights. While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.">
-<meta name="description" content="Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays. The effect is cheap and effective in creating the illusion of volumetric lights. While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.">
+<meta property="og:description" content="Pre-computing vs. on-the-fly approaches for sampling patterns.">
+<meta name="description" content="Pre-computing vs. on-the-fly approaches for sampling patterns.">
 <meta property="og:updated_time" content="2024-02-18T22:00:00Z">
 <meta property="fb:app_id" content="">
 <meta name="author" content="Unknown">
@@ -42,14 +670,14 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "How (Not) To Optimize Shaders",
-  "alternativeHeadline": "Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays. The effect is cheap and effective in creating the illusion of volumetric lights. While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.",
+  "alternativeHeadline": "Pre-computing vs. on-the-fly approaches for sampling patterns.",
   "url": "https://julhe.github.io/posts/how_not_to_optimize_shaders/",
   "image": "https://julhe.github.io/posts/how_not_to_optimize_shaders/thumb.jpg",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://julhe.github.io/posts/how_not_to_optimize_shaders/"
   },
-  "description": "Motivation I recently started working on the public release of an effect I did for Misgiven. The shader does render fake volumetric lights, also known as god rays or crepuscular rays. The effect is cheap and effective in creating the illusion of volumetric lights. While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance.",
+  "description": "Pre-computing vs. on-the-fly approaches for sampling patterns.",
   "author": {
     "@type": "Person",
     "name": "Unknown"
@@ -64,11 +692,11 @@
   },
   "datePublished": "2024-02-18T22:00:00Z",
   "dateModified": "2024-02-18T22:00:00Z",
-  "articleBody": "\u003ch1 id=\"motivation\"\u003eMotivation\u003c/h1\u003e\n\u003cp\u003eI recently started working on the public release of an effect I did for \u003ca href=\"https://store.steampowered.com/app/2475620/Misgiven/\"\u003eMisgiven\u003c/a\u003e. The shader does render fake volumetric lights, also known as god rays or crepuscular rays.\u003c/p\u003e\n\u003cp\u003eThe effect is cheap and effective in creating the illusion of volumetric lights.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"Screenshot_BeforeAfter_2.jpg\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003eWhile the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance. (In this article however, I will only look into the graphics-programmer side of things.)\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eShameless self-promotion: You can find the release + demo down below on itch.io\u003c/em\u003e\u003c/p\u003e\n\u003ciframe frameborder=\"0\" src=\"https://itch.io/embed/2419069?border_width=5\" width=\"560\" height=\"175\"\u003e\u003ca href=\"https://symmetrybreak.itch.io/ssgr-demo\"\u003eScreen Space God Rays by Symmetry Break Studio\u003c/a\u003e\u003c/iframe\u003e\r\n\u003ch2 id=\"the-god-ray-shader\"\u003eThe God Ray Shader\u003c/h2\u003e\n\u003cp\u003eThe full asset consisted of multiple shaders for masking, composing, etc. The most interesting shader is, of course, the one that creates the actual god rays. It\u0026rsquo;s basically done with two ingredients: zoom blur and disk blur.\u003c/p\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/dt3BR4?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003ch3 id=\"zoom-blur\"\u003eZoom Blur\u003c/h3\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/XXS3Wz?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003cp\u003eZoom blur looks similar to what would happen if you took a photo with a long exposure while changing the zoom factor. In the case of the god ray shader, it is the most important ingredient.\u003c/p\u003e\n\u003cp\u003eMask out a portion of the image, mostly the larger area where the light is emitted from, apply zoom blur to it, and blend it back to the original image. Voilà, you\u0026rsquo;ve created the illusion of light beams. Calculating the samples for this effect is not very expensive on its own.\u003c/p\u003e\n\u003ch3 id=\"disk-blur-using-the-vogel-disk-sample-pattern\"\u003eDisk Blur (Using The Vogel Disk Sample Pattern)\u003c/h3\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/X3B3Wz?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003cp\u003eThe Vogel disk is a pleasant-looking procedural pattern that looks similar to a sunflower. It can be used to blur an image with a circle-like shape, by sampling the image multiple times and averaging the result. Each time we sample, we use a different position on the Vogel disk. This shadertoy demonstrates the look of this pattern.\u003c/p\u003e\n\u003c!-- \u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/4l3yRM?gui=true\u0026t=10\u0026paused=false\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e --\u003e\r\n\u003cp\u003eFor the god ray shader, I use it to make the light beams appear softer, which I find very visually pleasing.\u003c/p\u003e\n\u003ch1 id=\"paths-for-optimization\"\u003ePaths For Optimization\u003c/h1\u003e\n\u003cp\u003eUpon reviewing the code, I finally had the time to address a concern I had with the original code:\u003c/p\u003e\n\u003cp\u003eShould I pre-compute all the sample positions on the CPU or compute them on the fly?\u003c/p\u003e\n\u003cp\u003eAfter all, computing the Vogel disk uses  \u003ccode\u003esin()\u003c/code\u003e, \u003ccode\u003ecos()\u003c/code\u003e and \u003ccode\u003esqrt()\u003c/code\u003e. These functions are notorious for being slow, or, to be more specific, running over multiple clock cycles.\u003c/p\u003e\n\u003cp\u003eBelow are two variants I\u0026rsquo;ve tested:\u003c/p\u003e\n\u003ch2 id=\"1-on-the-fly\"\u003e#1 On-The-Fly\u003c/h2\u003e\n\u003cp\u003eThe Vogel disk and zoom blur positions are calculated on-the-fly.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e VogelDiskSample(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e sampleIndex, \u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e sampleCount, \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e phi)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e{\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e(sampleIndex);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e sampleCountf \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e(sampleCount);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e goldenAngle \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e2.39996\u003c/span\u003e;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e r \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sqrt((sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0.5\u003c/span\u003e) \u003cspan style=\"color:#ff79c6\"\u003e/\u003c/span\u003e sampleCountf);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e theta \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e goldenAngle \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e phi;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003ereturn\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e(cos(theta), sin(theta)) \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e r;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e fragment_shader() {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e softnessSmpIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; softnessSmpIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e softnessSmpCount; softnessSmpIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#6272a4\"\u003e// Compute the sample on-the-fly\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e sample \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e VogelDiskSample(softnessSmpIdx, softnessSmpCount, \u003cspan style=\"color:#bd93f9\"\u003e0.0\u003c/span\u003e) \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e blurRadius;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; radialIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e radialSmpCount; radialIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#6272a4\"\u003e// Compute the radial blur on-the-fly\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e stepSize \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e rangePerSample;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e (\u003cspan style=\"color:#bd93f9\"\u003e1.0\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e stepSize) \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e uvOffset ;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e texture(iChannel0, uv); \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id=\"2-pre-computed\"\u003e#2 Pre-Computed\u003c/h2\u003e\n\u003cp\u003eThe Vogel disk and the zoom blur positions are pre-calculated on the CPU.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eUsing pre-computed data is also called a Look-Up-Table or LUT.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e fragment_shader() {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e (\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e smpIndex \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; smpIndex \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e sampleCount; smpIndex\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#6272a4\"\u003e// Both Vogel and radial are pre-computed.\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e sampleTS \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sampleLut[smpIndex];\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e screenUv \u003cspan style=\"color:#ff79c6\"\u003e-\u003c/span\u003e sampleTS.zw;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e sampleTS.xy \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e sampleTS.zw;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e  texture(iChannel0, uv);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eJust from looking at the size of the code, the pre-computed version should run faster, because more code = more work, right?\u003c/p\u003e\n\u003cp\u003eEven when looking at the amount of assembler instructions (in DXBC), the same picture forms:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eOn-The-Fly: 46 instructions\u003c/li\u003e\n\u003cli\u003ePre-Computed: 26 instructions (-56%)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eBut after all, we can\u0026rsquo;t be certain, so let\u0026rsquo;s run some benchmarks.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003eGTX 1050 Ti - 1/3\u003c/th\u003e\n\u003cth\u003eRTX 4070 - 1/3 Resolution\u003c/th\u003e\n\u003cth\u003eRTX 4070 - Full Resolution\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eOn-The-Fly\u003c/td\u003e\n\u003ctd\u003e10.0ms\u003c/td\u003e\n\u003ctd\u003e0.87ms\u003c/td\u003e\n\u003ctd\u003e3.16ms\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ePre-Computed\u003c/td\u003e\n\u003ctd\u003e10.3ms (+3%)\u003c/td\u003e\n\u003ctd\u003e0.95ms (+9%)\u003c/td\u003e\n\u003ctd\u003e3.78ms (+16%)\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eHuh, what is going on here? Why is the version with \u003cem\u003emore\u003c/em\u003e instructions \u003cem\u003efaster\u003c/em\u003e?\u003c/p\u003e\n\u003ch1 id=\"the-impact-of-memory-latency\"\u003eThe Impact Of Memory Latency\u003c/h1\u003e\n\u003cp\u003eThere is a second and often overlooked factor in performance, not only in the case of shaders, which is memory latency. This refers to the amount of time a processor has to wait to load a value from memory, mostly a significant time.\u003c/p\u003e\n\u003cp\u003eThe on-the-fly method performs faster, because it is not so dependent on memory. It doesn\u0026rsquo;t need to wait for the memory to know where to sample the texture we are trying to blur. It may have even already calculated that, \u003cem\u003ewhile\u003c/em\u003e it was asking the memory to read the texture from a previous iteration of the loop.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eModern GPUs are in fact able to suspend work on a pixel (or any other work item) while waiting for memory. This is called \u003cem\u003elatency hiding\u003c/em\u003e. In our case, the computation of the Vogel disk may be effectively done in parallel, while a thread is waiting for the memory to read the texture. The effectiveness of latency hiding is dependent on the occupancy. For more info, checkout: \u003ca href=\"https://gpuopen.com/learn/occupancy-explained/\"\u003ehttps://gpuopen.com/learn/occupancy-explained/\u003c/a\u003e.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eSimplified, the on-the-play method may run like this:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eCompute the value of \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eLoad/Sample from \u003ccode\u003eiChannel0\u003c/code\u003e with \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eWrite the resulting pixel to the frame buffer.\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003cp\u003eFor the Pre-Computed method, the picture is different. Since the texture read itself is dependent on some data that is in memory, a thread needs to wait for that data \u003cstrong\u003efirst\u003c/strong\u003e, before asking the memory \u003cstrong\u003ea second time\u003c/strong\u003e for the texture. At worst, no GPU thread is able to do anything, since all of them are waiting for memory.\u003c/p\u003e\n\u003cp\u003eStep-by-step it would roughly look like this:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eAsk the memory for \u003ccode\u003epreComputedSamplesFromCPU[smpIndex]\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eCompute \u003ccode\u003euv\u003c/code\u003e from the value of \u003ccode\u003esampleTS\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eLoad/Sample from iChannel0 from \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eWrite the resulting pixel to the frame buffer.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch1 id=\"conclusion\"\u003eConclusion\u003c/h1\u003e\n\u003cp\u003eShader optimization may not always be achieved by reducing the amount of bare metal instructions. As demonstrated, having more instructions for the sake of less memory access may actually increase performance. Care must also be taken when memory reads are dependent on each other, as it is the case with pre-computed version mentioned.\u003c/p\u003e\n\u003ch1 id=\"takeaways\"\u003eTakeaways\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eDon\u0026rsquo;t let instruction counts fool you. A lower instructions count doesn\u0026rsquo;t always mean faster execution.\u003c/li\u003e\n\u003cli\u003eIt is possible for code with more instructions to outperform code with fewer instructions, given enough memory usage.\u003c/li\u003e\n\u003cli\u003eUsing LUTs can improve speed, but it can also backfire if the memory look-up is slower than doing the actual calculation.\u003c/li\u003e\n\u003cli\u003eAvoid memory accesses that is dependent on each other.\u003c/li\u003e\n\u003cli\u003eAlways profile. Your intuition may not be correct.🙂\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3 id=\"bonus---hybrid-approach\"\u003eBonus - Hybrid approach\u003c/h3\u003e\n\u003cp\u003eFor the sake of completion, I also tried a hybrid version. Here, only the vogel disk samples are pre-computed.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e (\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e smpIndex \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; smpIndex \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e sampleCount; smpIndex\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e{\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// just pre-compute the vogel disk\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e sample \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e vogelDiskSamples[smpIndex] \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e blurRadius;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; radialIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e radialSmpCount; radialIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e stepSize \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e rangePerSample;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e (\u003cspan style=\"color:#bd93f9\"\u003e1.0\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e stepSize) \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e uvOffset ;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e texture(iChannel0, uv); \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e//...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eIt has an instruction count of 36. This version actually did perform better than the On-The-Fly method, but just by around ~2%.\u003c/p\u003e\n\u003chr\u003e\n\u003ch1 id=\"further-reading\"\u003eFurther Reading\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://gpuopen.com/learn/occupancy-explained/\"\u003eGPU Open / François Guthmann - Occupancy explained\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e"
+  "articleBody": "\u003ch1 id=\"motivation\"\u003eMotivation\u003c/h1\u003e\n\u003cp\u003eI recently started working on the public release of an effect I did for \u003ca href=\"https://store.steampowered.com/app/2475620/Misgiven/\"\u003eMisgiven\u003c/a\u003e. The shader does render fake volumetric lights, also known as god rays or crepuscular rays.\u003c/p\u003e\n\u003cp\u003eThe effect is cheap and effective in creating the illusion of volumetric lights.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/posts/how_not_to_optimize_shaders/Screenshot_BeforeAfter_2.jpg\"\u003e\u003c/p\u003e\n\u003cp\u003eWhile the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance. (In this article however, I will only look into the graphics-programmer side of things.)\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eShameless self-promotion: You can find the release + demo down below on itch.io\u003c/em\u003e\u003c/p\u003e\n\u003ciframe frameborder=\"0\" src=\"https://itch.io/embed/2419069?border_width=5\" width=\"560\" height=\"175\"\u003e\u003ca href=\"https://symmetrybreak.itch.io/ssgr-demo\"\u003eScreen Space God Rays by Symmetry Break Studio\u003c/a\u003e\u003c/iframe\u003e\r\n\u003ch2 id=\"the-god-ray-shader\"\u003eThe God Ray Shader\u003c/h2\u003e\n\u003cp\u003eThe full asset consisted of multiple shaders for masking, composing, etc. The most interesting shader is, of course, the one that creates the actual god rays. It\u0026rsquo;s basically done with two ingredients: zoom blur and disk blur.\u003c/p\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/dt3BR4?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003ch3 id=\"zoom-blur\"\u003eZoom Blur\u003c/h3\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/XXS3Wz?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003cp\u003eZoom blur looks similar to what would happen if you took a photo with a long exposure while changing the zoom factor. In the case of the god ray shader, it is the most important ingredient.\u003c/p\u003e\n\u003cp\u003eMask out a portion of the image, mostly the larger area where the light is emitted from, apply zoom blur to it, and blend it back to the original image. Voilà, you\u0026rsquo;ve created the illusion of light beams. Calculating the samples for this effect is not very expensive on its own.\u003c/p\u003e\n\u003ch3 id=\"disk-blur-using-the-vogel-disk-sample-pattern\"\u003eDisk Blur (Using The Vogel Disk Sample Pattern)\u003c/h3\u003e\n\u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/X3B3Wz?gui=true\u0026t=10\u0026paused=true\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e\r\n\u003cp\u003eThe Vogel disk is a pleasant-looking procedural pattern that looks similar to a sunflower. It can be used to blur an image with a circle-like shape, by sampling the image multiple times and averaging the result. Each time we sample, we use a different position on the Vogel disk. This shadertoy demonstrates the look of this pattern.\u003c/p\u003e\n\u003c!-- \u003ciframe width=\"640\" height=\"360\" frameborder=\"0\" src=\"https://www.shadertoy.com/embed/4l3yRM?gui=true\u0026t=10\u0026paused=false\u0026muted=false\" allowfullscreen\u003e\u003c/iframe\u003e --\u003e\r\n\u003cp\u003eFor the god ray shader, I use it to make the light beams appear softer, which I find very visually pleasing.\u003c/p\u003e\n\u003ch1 id=\"paths-for-optimization\"\u003ePaths For Optimization\u003c/h1\u003e\n\u003cp\u003eUpon reviewing the code, I finally had the time to address a concern I had with the original code:\u003c/p\u003e\n\u003cp\u003eShould I pre-compute all the sample positions on the CPU or compute them on the fly?\u003c/p\u003e\n\u003cp\u003eAfter all, computing the Vogel disk uses  \u003ccode\u003esin()\u003c/code\u003e, \u003ccode\u003ecos()\u003c/code\u003e and \u003ccode\u003esqrt()\u003c/code\u003e. These functions are notorious for being slow, or, to be more specific, running over multiple clock cycles.\u003c/p\u003e\n\u003cp\u003eBelow are two variants I\u0026rsquo;ve tested:\u003c/p\u003e\n\u003ch2 id=\"1-on-the-fly\"\u003e#1 On-The-Fly\u003c/h2\u003e\n\u003cp\u003eThe Vogel disk and zoom blur positions are calculated on-the-fly.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e VogelDiskSample(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e sampleIndex, \u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e sampleCount, \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e phi)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e{\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e(sampleIndex);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e sampleCountf \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e(sampleCount);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e goldenAngle \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e2.39996\u003c/span\u003e;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e r \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sqrt((sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0.5\u003c/span\u003e) \u003cspan style=\"color:#ff79c6\"\u003e/\u003c/span\u003e sampleCountf);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e theta \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sampleIndexf \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e goldenAngle \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e phi;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003ereturn\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e(cos(theta), sin(theta)) \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e r;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e fragment_shader() {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e softnessSmpIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; softnessSmpIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e softnessSmpCount; softnessSmpIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#6272a4\"\u003e// Compute the sample on-the-fly\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e sample \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e VogelDiskSample(softnessSmpIdx, softnessSmpCount, \u003cspan style=\"color:#bd93f9\"\u003e0.0\u003c/span\u003e) \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e blurRadius;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; radialIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e radialSmpCount; radialIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#6272a4\"\u003e// Compute the radial blur on-the-fly\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e stepSize \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e rangePerSample;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e (\u003cspan style=\"color:#bd93f9\"\u003e1.0\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e stepSize) \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e uvOffset ;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e            buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e texture(iChannel0, uv); \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003ch2 id=\"2-pre-computed\"\u003e#2 Pre-Computed\u003c/h2\u003e\n\u003cp\u003eThe Vogel disk and the zoom blur positions are pre-calculated on the CPU.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eUsing pre-computed data is also called a Look-Up-Table or LUT.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e fragment_shader() {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e (\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e smpIndex \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; smpIndex \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e sampleCount; smpIndex\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#6272a4\"\u003e// Both Vogel and radial are pre-computed.\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec4\u003c/span\u003e sampleTS \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e sampleLut[smpIndex];\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e screenUv \u003cspan style=\"color:#ff79c6\"\u003e-\u003c/span\u003e sampleTS.zw;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e sampleTS.xy \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e sampleTS.zw;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e  texture(iChannel0, uv);\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eJust from looking at the size of the code, the pre-computed version should run faster, because more code = more work, right?\u003c/p\u003e\n\u003cp\u003eEven when looking at the amount of assembler instructions (in DXBC), the same picture forms:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eOn-The-Fly: 46 instructions\u003c/li\u003e\n\u003cli\u003ePre-Computed: 26 instructions (-56%)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eBut after all, we can\u0026rsquo;t be certain, so let\u0026rsquo;s run some benchmarks.\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e\u003c/th\u003e\n\u003cth\u003eGTX 1050 Ti - 1/3\u003c/th\u003e\n\u003cth\u003eRTX 4070 - 1/3 Resolution\u003c/th\u003e\n\u003cth\u003eRTX 4070 - Full Resolution\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eOn-The-Fly\u003c/td\u003e\n\u003ctd\u003e10.0ms\u003c/td\u003e\n\u003ctd\u003e0.87ms\u003c/td\u003e\n\u003ctd\u003e3.16ms\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ePre-Computed\u003c/td\u003e\n\u003ctd\u003e10.3ms (+3%)\u003c/td\u003e\n\u003ctd\u003e0.95ms (+9%)\u003c/td\u003e\n\u003ctd\u003e3.78ms (+16%)\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003eHuh, what is going on here? Why is the version with \u003cem\u003emore\u003c/em\u003e instructions \u003cem\u003efaster\u003c/em\u003e?\u003c/p\u003e\n\u003ch1 id=\"the-impact-of-memory-latency\"\u003eThe Impact Of Memory Latency\u003c/h1\u003e\n\u003cp\u003eThere is a second and often overlooked factor in performance, not only in the case of shaders, which is memory latency. This refers to the amount of time a processor has to wait to load a value from memory, mostly a significant time.\u003c/p\u003e\n\u003cp\u003eThe on-the-fly method performs faster, because it is not so dependent on memory. It doesn\u0026rsquo;t need to wait for the memory to know where to sample the texture we are trying to blur. It may have even already calculated that, \u003cem\u003ewhile\u003c/em\u003e it was asking the memory to read the texture from a previous iteration of the loop.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eModern GPUs are in fact able to suspend work on a pixel (or any other work item) while waiting for memory. This is called \u003cem\u003elatency hiding\u003c/em\u003e. In our case, the computation of the Vogel disk may be effectively done in parallel, while a thread is waiting for the memory to read the texture. The effectiveness of latency hiding is dependent on the occupancy. For more info, checkout: \u003ca href=\"https://gpuopen.com/learn/occupancy-explained/\"\u003ehttps://gpuopen.com/learn/occupancy-explained/\u003c/a\u003e.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eSimplified, the on-the-play method may run like this:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eCompute the value of \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eLoad/Sample from \u003ccode\u003eiChannel0\u003c/code\u003e with \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eWrite the resulting pixel to the frame buffer.\u003c/li\u003e\n\u003c/ol\u003e\n\u003chr\u003e\n\u003cp\u003eFor the Pre-Computed method, the picture is different. Since the texture read itself is dependent on some data that is in memory, a thread needs to wait for that data \u003cstrong\u003efirst\u003c/strong\u003e, before asking the memory \u003cstrong\u003ea second time\u003c/strong\u003e for the texture. At worst, no GPU thread is able to do anything, since all of them are waiting for memory.\u003c/p\u003e\n\u003cp\u003eStep-by-step it would roughly look like this:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eAsk the memory for \u003ccode\u003epreComputedSamplesFromCPU[smpIndex]\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eCompute \u003ccode\u003euv\u003c/code\u003e from the value of \u003ccode\u003esampleTS\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eLoad/Sample from iChannel0 from \u003ccode\u003euv\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eWait for memory.\u003c/strong\u003e\u003c/li\u003e\n\u003cli\u003eWrite the resulting pixel to the frame buffer.\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch1 id=\"conclusion\"\u003eConclusion\u003c/h1\u003e\n\u003cp\u003eShader optimization may not always be achieved by reducing the amount of bare metal instructions. As demonstrated, having more instructions for the sake of less memory access may actually increase performance. Care must also be taken when memory reads are dependent on each other, as it is the case with pre-computed version mentioned.\u003c/p\u003e\n\u003ch1 id=\"takeaways\"\u003eTakeaways\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003eDon\u0026rsquo;t let instruction counts fool you. A lower instructions count doesn\u0026rsquo;t always mean faster execution.\u003c/li\u003e\n\u003cli\u003eIt is possible for code with more instructions to outperform code with fewer instructions, given enough memory usage.\u003c/li\u003e\n\u003cli\u003eUsing LUTs can improve speed, but it can also backfire if the memory look-up is slower than doing the actual calculation.\u003c/li\u003e\n\u003cli\u003eAvoid memory accesses that is dependent on each other.\u003c/li\u003e\n\u003cli\u003eAlways profile. Your intuition may not be correct.🙂\u003c/li\u003e\n\u003c/ul\u003e\n\u003chr\u003e\n\u003ch3 id=\"bonus---hybrid-approach\"\u003eBonus - Hybrid approach\u003c/h3\u003e\n\u003cp\u003eFor the sake of completion, I also tried a hybrid version. Here, only the vogel disk samples are pre-computed.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-glsl\" data-lang=\"glsl\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e// ...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e (\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e smpIndex \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; smpIndex \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e sampleCount; smpIndex\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e{\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#6272a4\"\u003e// just pre-compute the vogel disk\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e sample \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e vogelDiskSamples[smpIndex] \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e blurRadius;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    \u003cspan style=\"color:#ff79c6\"\u003efor\u003c/span\u003e(\u003cspan style=\"color:#ff79c6\"\u003eint\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#bd93f9\"\u003e0\u003c/span\u003e; radialIdx \u003cspan style=\"color:#ff79c6\"\u003e\u0026lt;\u003c/span\u003e radialSmpCount; radialIdx\u003cspan style=\"color:#ff79c6\"\u003e++\u003c/span\u003e)\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    {\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003efloat\u003c/span\u003e stepSize \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e radialIdx \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e rangePerSample;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        \u003cspan style=\"color:#ff79c6\"\u003evec2\u003c/span\u003e uv \u003cspan style=\"color:#ff79c6\"\u003e=\u003c/span\u003e uvCentered \u003cspan style=\"color:#ff79c6\"\u003e*\u003c/span\u003e (\u003cspan style=\"color:#bd93f9\"\u003e1.0\u003c/span\u003e \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e stepSize) \u003cspan style=\"color:#ff79c6\"\u003e+\u003c/span\u003e uvOffset ;\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e        buffer \u003cspan style=\"color:#ff79c6\"\u003e+=\u003c/span\u003e texture(iChannel0, uv); \n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e    }\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e}\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#6272a4\"\u003e//...\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eIt has an instruction count of 36. This version actually did perform better than the On-The-Fly method, but just by around ~2%.\u003c/p\u003e\n\u003chr\u003e\n\u003ch1 id=\"further-reading\"\u003eFurther Reading\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://gpuopen.com/learn/occupancy-explained/\"\u003eGPU Open / François Guthmann - Occupancy explained\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e"
 }
 </script>
 
-<link rel="preload" as="script" href="https://julhe.github.io/bundle.js?v=1709313176">
+<link rel="preload" as="script" href="https://julhe.github.io/bundle.js?v=1711547554">
 
 
 </head>
@@ -147,7 +775,7 @@ alt="How (Not) To Optimize Shaders">
 <h1 id="motivation">Motivation</h1>
 <p>I recently started working on the public release of an effect I did for <a href="https://store.steampowered.com/app/2475620/Misgiven/">Misgiven</a>. The shader does render fake volumetric lights, also known as god rays or crepuscular rays.</p>
 <p>The effect is cheap and effective in creating the illusion of volumetric lights.</p>
-<p><img src="Screenshot_BeforeAfter_2.jpg" alt=""></p>
+<p><img src="https://julhe.github.io/posts/how_not_to_optimize_shaders/Screenshot_BeforeAfter_2.jpg"></p>
 <p>While the original code was done in just ~2 days, now I had the time to dig deeper and offer both a better UX and better performance. (In this article however, I will only look into the graphics-programmer side of things.)</p>
 <p><em>Shameless self-promotion: You can find the release + demo down below on itch.io</em></p>
 <iframe frameborder="0" src="https://itch.io/embed/2419069?border_width=5" width="560" height="175"><a href="https://symmetrybreak.itch.io/ssgr-demo">Screen Space God Rays by Symmetry Break Studio</a></iframe>
@@ -344,7 +972,7 @@ alt="How (Not) To Optimize Shaders">
   </div>
 </footer>
 
-<script src="https://julhe.github.io/bundle.js?v=1709313176"></script>
+<script src="https://julhe.github.io/bundle.js?v=1711547554"></script>
 
 
 </body>
