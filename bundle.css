@@ -4,6 +4,10 @@
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
+@font-face {
+    font-family: 'Berkeley Mono Variable';
+    src: url('fonts/BerkeleyMonoVariable-Regular.woff2') format('woff2');
+}
 
 *,
 ::before,
@@ -13,6 +17,8 @@
   border-style: solid; /* 2 */
   border-color: #e5e7eb; /* 2 */
 }
+
+
 
 ::before,
 ::after {
@@ -116,7 +122,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: "Berkeley Mono Variable", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: 'Berkeley Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
   font-feature-settings: normal; /* 2 */
   font-variation-settings: normal; /* 3 */
   font-size: 1em; /* 4 */
@@ -722,10 +728,10 @@ video {
   text-align: right;
 }
 .font-content-sans {
-  font-family: Berkeley Mono Variable, content-sans, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Arial, sans-serif;
+  font-family: 'Berkeley Mono Variable', content-sans, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Arial, sans-serif;
 }
 .font-content-title {
-  font-family: Berkeley Mono Variable, content-title, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'Berkeley Mono Variable', content-title, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -1070,7 +1076,7 @@ p.post-subtitle {}
   .cdata > h4,
   .cdata > h5,
   .cdata > h6 {
-  font-family: Berkeley Mono Variable, content-sans, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Arial, sans-serif;
+  font-family: 'Berkeley Mono Variable', content-sans, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Arial, sans-serif;
 }
 .cdata > h1,
   .cdata > h2,
@@ -1120,7 +1126,7 @@ p.post-subtitle {}
   .cdata > ol,
   .cdata > ul,
   .cdata > blockquote p {
-  font-family: Berkeley Mono Variable, content-serif, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'Berkeley Mono Variable', content-serif, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 .cdata > p,
   .cdata > ol,
@@ -1293,7 +1299,7 @@ p.post-subtitle {}
   color: rgb(77 77 77 / var(--tw-text-opacity));
 }
 .cdata > blockquote footer, .cdata > blockquote cite {
-  font-family: Berkeley Mono Variable, system-ui, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
+  font-family: 'Berkeley Mono Variable', system-ui, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif;
 }
 
 /* .cdata > blockquote footer, .cdata > blockquote cite {
